@@ -1,7 +1,7 @@
 import VideoCard from "../../SharedComponent/VideoCard";
 
 const VideoGallery = () => (
-  <div className="max-w-7xl mx-auto px-2 my-10 py-6">
+  <div className="container mx-auto px-2 my-10 py-6">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-gray-900">
         আমাদের ভিডিও গ্যালারি

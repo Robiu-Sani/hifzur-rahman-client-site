@@ -1,3 +1,5 @@
+image galery
+
 import { useState } from "react";
 import image from "../../../image/bookBg.jpg";
 
