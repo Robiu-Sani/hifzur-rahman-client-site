@@ -1,10 +1,10 @@
-import bannerBg from "../../../image/bg1.jpg";
+import Banner from "./Banner";
 
 export default function LandingHome() {
   return (
-    <div>
+    <div className="w-full">
+      <Banner></Banner>
       LandingHome
-      <img src={bannerBg} alt="" />
     </div>
   );
 }

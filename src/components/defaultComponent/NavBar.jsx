@@ -1,8 +1,42 @@
+import { Link, NavLink } from "react-router-dom";
+
 export default function NavBar() {
+  const navItem = (
+    <>
+      <li>
+        <NavLink to={"/"}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/about"}>About</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/blog"}>Blog</NavLink>
+      </li>
+      <li>
+        <details>
+          <summary>Services</summary>
+          <ul className="p-2 bg-gradient rounded">
+            <li>
+              <NavLink to={"/videos"}>Videos</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/books"}>Books</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/videos"}>Programmes</NavLink>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <NavLink to={"/contact"}>Contact</NavLink>
+      </li>
+    </>
+  );
   return (
-    <div className="w-full">
+    <div className="w-full fixed top-0">
       <div className="container mx-auto">
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-none">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -27,54 +61,23 @@ export default function NavBar() {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu bg-gradient font-bold menu-sm dropdown-content bg-base-100 rounded z-[1] mt-3 w-52 p-2 shadow"
               >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Parent</a>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Item 3</a>
-                </li>
+                {navItem}
               </ul>
             </div>
             <a className="btn btn-ghost text-xl">daisyUI</a>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <details>
-                  <summary>Parent</summary>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
-            </ul>
+            <ul className="menu font-bold menu-horizontal  px-1">{navItem}</ul>
           </div>
           <div className="navbar-end">
-            <a className="btn">Button</a>
+            <Link
+              to={"/login"}
+              className="px-5 p-2 rounded bg-gradient text-yellow-600 shadow font-bold"
+            >
+              Login
+            </Link>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import NavBar from "../defaultComponent/NavBar";
 
 export default function HomeRoot() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative w-full">
       <NavBar></NavBar>
       <Outlet />
       <Footer />
