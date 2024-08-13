@@ -11,3 +11,18 @@ li > .active {
   background: none !important;
   color: goldenrod !important;
 }
+
+.UpDownAnimation {
+  animation: UpDownAnimation 3s infinite;
+}
+@keyframes UpDownAnimation {
+  0% {
+    transform: translateY(-15%);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(-15%);
+  }
+}

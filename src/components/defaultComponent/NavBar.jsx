@@ -4,37 +4,51 @@ export default function NavBar() {
   const navItem = (
     <>
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink to={"/"} className="text-gray-700">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/about"}>About</NavLink>
+        <NavLink to={"/about"} className="text-gray-700">
+          About
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/blog"}>Blog</NavLink>
+        <NavLink to={"/blog"} className="text-gray-700">
+          Blog
+        </NavLink>
       </li>
       <li>
         <details>
-          <summary>Services</summary>
+          <summary className="text-gray-700">Services</summary>
           <ul className="p-2 bg-gradient rounded">
             <li>
-              <NavLink to={"/videos"}>Videos</NavLink>
+              <NavLink to={"/videos"} className="text-gray-700">
+                Videos
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/books"}>Books</NavLink>
+              <NavLink to={"/books"} className="text-gray-700">
+                Books
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/videos"}>Programmes</NavLink>
+              <NavLink to={"/programmes"} className="text-gray-700">
+                Programmes
+              </NavLink>
             </li>
           </ul>
         </details>
       </li>
       <li>
-        <NavLink to={"/contact"}>Contact</NavLink>
+        <NavLink to={"/contact"} className="text-gray-700">
+          Contact
+        </NavLink>
       </li>
     </>
   );
   return (
-    <div className="w-full fixed top-0">
+    <div className="w-full z-[1000] fixed top-0">
       <div className="container mx-auto">
         <div className="navbar bg-none">
           <div className="navbar-start">
@@ -61,7 +75,7 @@ export default function NavBar() {
               </div>
               <ul
                 tabIndex={0}
-                className="menu bg-gradient font-bold menu-sm dropdown-content bg-base-100 rounded z-[1] mt-3 w-52 p-2 shadow"
+                className="menu  bg-gradient font-bold menu-sm dropdown-content bg-base-100 rounded mt-3 w-52 p-2 shadow"
               >
                 {navItem}
               </ul>
