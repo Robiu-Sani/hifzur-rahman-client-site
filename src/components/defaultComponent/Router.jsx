@@ -16,6 +16,13 @@ import DeshboardHome from "../Deshboard/DeshboardHome/DeshboardHome";
 
 //extra
 import Deshboard from "../test/Deshboard";
+import ManageBlogs from "../Deshboard/ManageBlogs/ManageBlogs";
+import ManageImages from "../Deshboard/ManageImages/ManageImages";
+import ManageVideos from "../Deshboard/ManageVideos/ManageVideos";
+import ManageProgrammes from "../Deshboard/ManageProgrammes/ManageProgrammes";
+import ManageNews from "../Deshboard/ManageNews/ManageNews";
+import ManageQuote from "../Deshboard/ManageQuote/ManageQuote";
+import ManageContact from "../Deshboard/ManageContact/ManageContact";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +79,34 @@ export const router = createBrowserRouter([
       {
         path: "/deshboard",
         element: <DeshboardHome></DeshboardHome>,
+      },
+      {
+        path: "/manageblogs",
+        element: <ManageBlogs></ManageBlogs>,
+      },
+      {
+        path: "/manageimages",
+        element: <ManageImages></ManageImages>,
+      },
+      {
+        path: "/managevideos",
+        element: <ManageVideos></ManageVideos>,
+      },
+      {
+        path: "/manageprogrammes",
+        element: <ManageProgrammes></ManageProgrammes>,
+      },
+      {
+        path: "/managenews",
+        element: <ManageNews></ManageNews>,
+      },
+      {
+        path: "/managequote",
+        element: <ManageQuote></ManageQuote>,
+      },
+      {
+        path: "/managecontact",
+        element: <ManageContact></ManageContact>,
       },
     ],
   },
