@@ -1,47 +1,64 @@
 import { Link, NavLink } from "react-router-dom";
+import logo from "../../image/logo.png";
 
 export default function NavBar() {
   const navItem = (
     <>
       <li>
-        <NavLink to={"/"} className="text-gray-700">
+        <NavLink to={"/"} className="text-white">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/about"} className="text-gray-700">
+        <NavLink to={"/about"} className="text-white">
           About
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/blog"} className="text-gray-700">
+        <NavLink to={"/blog"} className="text-white">
           Blog
         </NavLink>
       </li>
       <li>
+        <NavLink to={"/news"} className="text-white">
+          News
+        </NavLink>
+      </li>
+
+      <li>
         <details>
-          <summary className="text-gray-700">Services</summary>
+          <summary className="text-white">Services</summary>
           <ul className="p-2 bg-gradient rounded">
             <li>
-              <NavLink to={"/videos"} className="text-gray-700">
+              <NavLink to={"/videos"} className="text-white">
                 Videos
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/books"} className="text-gray-700">
+              <NavLink to={"/books"} className="text-white">
                 Books
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/programmes"} className="text-gray-700">
+              <NavLink to={"/images"} className="text-white">
+                Images
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/programmes"} className="text-white">
                 Programmes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/quote"} className="text-white">
+                Quote
               </NavLink>
             </li>
           </ul>
         </details>
       </li>
       <li>
-        <NavLink to={"/contact"} className="text-gray-700">
+        <NavLink to={"/contact"} className="text-white">
           Contact
         </NavLink>
       </li>
@@ -80,7 +97,9 @@ export default function NavBar() {
                 {navItem}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">daisyUI</a>
+            <Link to="/">
+              <img src={logo} alt="logo" className="h-[30px]" />
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu font-bold menu-horizontal  px-1">{navItem}</ul>
@@ -88,7 +107,7 @@ export default function NavBar() {
           <div className="navbar-end">
             <Link
               to={"/login"}
-              className="px-5 p-2 rounded bg-gradient text-yellow-600 shadow font-bold"
+              className="px-5 p-2 rounded hover:scale-110 transform transition duration-300 bg-gradient text-yellow-600 shadow font-bold"
             >
               Login
             </Link>

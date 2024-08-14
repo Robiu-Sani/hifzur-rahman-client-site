@@ -1,6 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla:ital@0;1&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  font-family: "Tiro Bangla", serif;
+}
+/* .tiro-bangla-regular {
+  font-family: "Tiro Bangla", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.tiro-bangla-regular-italic {
+  font-family: "Tiro Bangla", serif;
+  font-weight: 400;
+  font-style: italic;
+} */
 
 .text-gradient {
   background: linear-gradient(135deg, #c3ceb7, #cfb56b, #fdc55d);

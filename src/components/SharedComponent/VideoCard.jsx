@@ -3,7 +3,7 @@ import { FaPlay, FaCalendarAlt, FaUserAlt } from "react-icons/fa";
 
 export default function VideoCard() {
   return (
-    <motion.div className="bg-gradient-to-r border-b-[3px] border-b-blue-500 from-blue-100 to-purple-100 shadow-xl rounded-lg overflow-hidden mb-6 border border-gray-200">
+    <motion.div className="bg-gradient-to-r border-b-[3px] border-b-[#317170] from-blue-100 to-purple-100 shadow-xl rounded-lg overflow-hidden mb-6 border border-gray-200">
       <div className="relative group">
         <iframe
           className="w-full h-48 transition-transform duration-300 group-hover:scale-105"

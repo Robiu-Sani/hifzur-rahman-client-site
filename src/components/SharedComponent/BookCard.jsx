@@ -20,7 +20,7 @@ const Button = ({ icon: Icon, text, className, ...props }) => (
 
 export default function BookCard() {
   return (
-    <div className="max-w-md mx-auto border-b-[3px] border-b-blue-500 bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="max-w-md mx-auto border-b-[3px] border-b-[#317170] bg-white shadow-lg rounded-lg overflow-hidden">
       <div
         className="relative w-full h-56 flex p-3 justify-center items-center bg-no-repeat bg-cover bg-center transform transition-transform duration-300 hover:scale-105"
         style={{ backgroundImage: `url(${bg})` }}

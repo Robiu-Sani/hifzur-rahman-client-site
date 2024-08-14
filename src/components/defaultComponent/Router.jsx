@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeRoot from "../LandingPages/HomeRoot";
 import Error from "./Error";
-import Home from "../LandingPages/Home/Home";
 import LandingHome from "../LandingPages/LandingHome/LandingHome";
 import About from "../LandingPages/About/About";
 import Blog from "../LandingPages/Blog/Blog";
@@ -9,6 +8,9 @@ import Contact from "../LandingPages/Contact/Contact";
 import Videos from "../LandingPages/Videos/Videos";
 import Books from "../LandingPages/Books/Books";
 import Programmes from "../LandingPages/Programmes/Programmes";
+import News from "../LandingPages/News/News";
+import Quote from "../LandingPages/Quote/Quote";
+import Images from "../LandingPages/Images/Images";
 
 export const router = createBrowserRouter([
   {
@@ -45,8 +47,16 @@ export const router = createBrowserRouter([
         element: <Programmes></Programmes>,
       },
       {
-        path: "/test",
-        element: <Home></Home>,
+        path: "/news",
+        element: <News></News>,
+      },
+      {
+        path: "/quote",
+        element: <Quote></Quote>,
+      },
+      {
+        path: "/images",
+        element: <Images></Images>,
       },
     ],
   },
