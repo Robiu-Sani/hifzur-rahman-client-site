@@ -4,6 +4,7 @@
 @tailwind utilities;
 * {
   font-family: "Tiro Bangla", serif;
+  transition: all 0.3s;
 }
 /* .tiro-bangla-regular {
   font-family: "Tiro Bangla", serif;
@@ -25,6 +26,10 @@
 li > .active {
   background: none !important;
   color: goldenrod !important;
+}
+.navActive > .active {
+  padding-left: 10px;
+  background: #537575;
 }
 
 .UpDownAnimation {

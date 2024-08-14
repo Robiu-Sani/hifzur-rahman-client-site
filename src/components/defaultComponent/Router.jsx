@@ -11,6 +11,11 @@ import Programmes from "../LandingPages/Programmes/Programmes";
 import News from "../LandingPages/News/News";
 import Quote from "../LandingPages/Quote/Quote";
 import Images from "../LandingPages/Images/Images";
+import DeshboardRoot from "../Deshboard/DeshboardRoot";
+import DeshboardHome from "../Deshboard/DeshboardHome/DeshboardHome";
+
+//extra
+import Deshboard from "../test/Deshboard";
 
 export const router = createBrowserRouter([
   {
@@ -59,5 +64,19 @@ export const router = createBrowserRouter([
         element: <Images></Images>,
       },
     ],
+  },
+  {
+    path: "/",
+    element: <DeshboardRoot></DeshboardRoot>,
+    children: [
+      {
+        path: "/deshboard",
+        element: <DeshboardHome></DeshboardHome>,
+      },
+    ],
+  },
+  {
+    path: "/test",
+    element: <Deshboard></Deshboard>,
   },
 ]);

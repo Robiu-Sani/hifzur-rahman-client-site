@@ -12,7 +12,7 @@ export default function BookSection() {
       <p className="text-xl text-center -mt-4 text-gray-600">
         Here you can See Islamic Book writen by Dr.Hifzur Rahman.
       </p>
-      <div className="container mx-auto px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <div className="container mx-auto z-10 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         <BookCard></BookCard>
         <BookCard></BookCard>
         <BookCard></BookCard>
