@@ -1,101 +1,59 @@
-import { useState } from "react";
-import { FiMenu, FiHome, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
+import { FaImage, FaCalendarAlt, FaClock } from "react-icons/fa";
+import image from "../../image/bgb1.jpg";
 
-const Dashboard = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
+export default function ProgrammerPostCard() {
   return (
-    <div className="min-h-screen flex bg-gray-100">
-      {/* Sidebar */}
-      <aside
-        className={`${
-          sidebarOpen ? "w-64" : "w-16"
-        } bg-blue-900 text-white transition-all duration-300 flex flex-col`}
-      >
-        <div className="p-4 flex justify-center items-center">
-          <div className="text-2xl font-semibold text-center">
-            {sidebarOpen ? "Dashboard" : "D"}
-          </div>
-          <button
-            className="ml-auto text-white md:hidden"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-          >
-            <FiMenu />
-          </button>
+    <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 bg-white shadow-lg rounded-lg border border-gray-200">
+      {/* <h2 className="text-2xl font-bold mb-4">Programmer Post Details</h2> */}
+
+      {/* Image Display */}
+      <img
+        src={image}
+        alt="Uploaded"
+        className="w-full h-auto max-h-64 object-cover rounded-md shadow-md"
+      />
+
+      {/* Title */}
+      <div className="mb-4">
+        <h3 className="text-xl font-semibold text-gray-800">
+          <FaImage className="inline mr-2 text-indigo-600" />
+          <span>this is title</span>
+        </h3>
+      </div>
+
+      {/* Description */}
+      <div className="mb-4">
+        <p className="text-gray-700">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
+          pariatur quas minima ipsum omnis earum rerum sit excepturi officia
+          tenetur.
+        </p>
+      </div>
+
+      {/* Program Space */}
+      <div className="mb-4">
+        <p className="text-gray-700">
+          <strong>Program Space: </strong>Space name
+        </p>
+      </div>
+
+      {/* Date and Time */}
+      <div className="mb-4">
+        <p className="text-gray-700">
+          <FaCalendarAlt className="inline mr-2 text-blue-600" />
+          <strong>Date: </strong>25/25/25
+        </p>
+        <div className="w-full flex justify-around items-center gap-1">
+          <p className="text-gray-700">
+            <FaClock className="inline mr-2 text-green-600" />
+            <strong>Start Time: </strong>25:25
+          </p>
+          <p className="text-gray-700">
+            <FaClock className="inline mr-2 text-red-600" />
+            <strong>End Time: </strong>25:25
+          </p>
         </div>
-        <nav className="flex-1 p-4 space-y-2">
-          <a
-            href="#"
-            className="flex items-center p-2 rounded hover:bg-blue-700"
-          >
-            <FiHome className="mr-3" /> {sidebarOpen && "Home"}
-          </a>
-          <a
-            href="#"
-            className="flex items-center p-2 rounded hover:bg-blue-700"
-          >
-            <FiUser className="mr-3" /> {sidebarOpen && "Profile"}
-          </a>
-          <a
-            href="#"
-            className="flex items-center p-2 rounded hover:bg-blue-700"
-          >
-            <FiSettings className="mr-3" /> {sidebarOpen && "Settings"}
-          </a>
-          <a
-            href="#"
-            className="flex items-center p-2 rounded hover:bg-blue-700"
-          >
-            <FiLogOut className="mr-3" /> {sidebarOpen && "Logout"}
-          </a>
-        </nav>
-      </aside>
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Top Navigation */}
-        <header className="bg-white shadow p-4 flex justify-between items-center">
-          <button
-            className="text-gray-600 md:hidden"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-          >
-            <FiMenu />
-          </button>
-          <h1 className="text-xl font-semibold">Dashboard</h1>
-          <div className="space-x-4">
-            <a href="#" className="text-gray-600 hover:text-gray-900">
-              Support
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900">
-              Notifications
-            </a>
-          </div>
-        </header>
-
-        {/* Content Area */}
-        <main className="flex-1 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-white shadow p-6 rounded-lg">
-            <h2 className="text-lg font-semibold mb-4">Analytics</h2>
-            <p>View detailed analytics data...</p>
-          </div>
-          <div className="bg-white shadow p-6 rounded-lg">
-            <h2 className="text-lg font-semibold mb-4">Reports</h2>
-            <p>Generate and view various reports...</p>
-          </div>
-          <div className="bg-white shadow p-6 rounded-lg">
-            <h2 className="text-lg font-semibold mb-4">User Management</h2>
-            <p>Manage users and permissions...</p>
-          </div>
-          {/* Add more sections as needed */}
-        </main>
-
-        {/* Footer */}
-        <footer className="bg-white shadow p-4 text-center">
-          &copy; 2024 Dashboard. All rights reserved.
-        </footer>
       </div>
     </div>
   );
-};
-
-export default Dashboard;
+}

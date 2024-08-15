@@ -11,7 +11,7 @@ export default function DashboardRoot() {
   return (
     <div className="w-full h-screen overflow-hidden bg-[#3171703a] flex relative">
       <div
-        className={`min-w-[270px] h-full pb-[100px]  overflow-x-hidden bg-gradient absolute md:static p-3 transition-all duration-300 ${
+        className={`min-w-[270px] h-full pb-[100px] z-[1000] overflow-x-hidden bg-gradient absolute md:static p-3 transition-all duration-300 ${
           callNav ? "left-0" : "-left-[270px]"
         }`}
       >
@@ -26,7 +26,7 @@ export default function DashboardRoot() {
       {/* Swap Button */}
       <div
         onClick={() => setCallNav(!callNav)} // Use onClick instead of onChange
-        className={`absolute flex text-white justify-center top-1  items-center md:hidden w-[40px] h-[40px] rounded-full bg-gradient cursor-pointer ${
+        className={`absolute flex text-white justify-center top-1 z-[1001] items-center md:hidden w-[40px] h-[40px] rounded-full bg-gradient cursor-pointer ${
           callNav ? "left-[225px]" : "left-2"
         }`}
       >

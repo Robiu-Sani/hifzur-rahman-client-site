@@ -1,3 +1,4 @@
+import ManageProgrammCard from "../ShireDeshboardComponent/ManageProgrammCard";
 import CreateProgrammerPost from "./CreateProgrammerPost";
 
 export default function ManageProgrammes() {
@@ -16,7 +17,7 @@ export default function ManageProgrammes() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab"
+            className="tab !min-w-[150px]"
             aria-label="Create Programmes Post"
           />
           <div
@@ -30,7 +31,7 @@ export default function ManageProgrammes() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab"
+            className="tab !min-w-[150px]"
             aria-label="Manage Programmes Post"
             defaultChecked
           />
@@ -38,7 +39,23 @@ export default function ManageProgrammes() {
             role="tabpanel"
             className="tab-content border-t border-gray-400 border-x-0 p-2  overflow-y-auto border-b-0"
           >
-            Tab content 2
+            <div
+              className="w-full grid gap-5"
+              style={{
+                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              }}
+            >
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+              <ManageProgrammCard></ManageProgrammCard>
+            </div>
           </div>
         </div>
       </div>

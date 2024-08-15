@@ -1,3 +1,4 @@
+import ManageBlogCard from "../ShireDeshboardComponent/ManageBlogCard";
 import CreateBlogPost from "./CreateBlogPost";
 
 export default function ManageBlogs() {
@@ -16,7 +17,7 @@ export default function ManageBlogs() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab"
+            className="tab !min-w-[150px]"
             aria-label="Create Blogs Post"
           />
           <div
@@ -30,7 +31,7 @@ export default function ManageBlogs() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab"
+            className="tab !min-w-[150px]"
             aria-label="Manage Blogs Post"
             defaultChecked
           />
@@ -38,7 +39,22 @@ export default function ManageBlogs() {
             role="tabpanel"
             className="tab-content border-t border-gray-400 border-x-0 p-2  overflow-y-auto border-b-0"
           >
-            Tab content 2
+            <div
+              className="w-full grid gap-5"
+              style={{
+                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              }}
+            >
+              <ManageBlogCard></ManageBlogCard>
+              <ManageBlogCard></ManageBlogCard>
+              <ManageBlogCard></ManageBlogCard>
+              <ManageBlogCard></ManageBlogCard>
+              <ManageBlogCard></ManageBlogCard>
+              <ManageBlogCard></ManageBlogCard>
+              <ManageBlogCard></ManageBlogCard>
+              <ManageBlogCard></ManageBlogCard>
+              <ManageBlogCard></ManageBlogCard>
+            </div>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import ManageNewsCard from "../ShireDeshboardComponent/ManageNewsCard";
 import CreateNewsPost from "./CreateNewsPost";
 
 export default function ManageNews() {
@@ -16,7 +17,7 @@ export default function ManageNews() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab"
+            className="tab !min-w-[150px]"
             aria-label="Create Newses Post"
           />
           <div
@@ -30,7 +31,7 @@ export default function ManageNews() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab"
+            className="tab !min-w-[150px]"
             aria-label="Manage Newses Post"
             defaultChecked
           />
@@ -38,7 +39,21 @@ export default function ManageNews() {
             role="tabpanel"
             className="tab-content border-t border-gray-400 border-x-0 p-2  overflow-y-auto border-b-0"
           >
-            Tab content 2
+            <div
+              className="w-full grid gap-5"
+              style={{
+                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              }}
+            >
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+            </div>
           </div>
         </div>
       </div>

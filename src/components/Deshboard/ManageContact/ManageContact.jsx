@@ -1,3 +1,4 @@
+import ManageContactCard from "../ShireDeshboardComponent/ManageContactCard";
 import CreateContactAddress from "./CreateContactAddress";
 
 export default function ManageContact() {
@@ -16,7 +17,7 @@ export default function ManageContact() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab"
+            className="tab !min-w-[150px]"
             aria-label="Create Contacts Post"
           />
           <div
@@ -30,7 +31,7 @@ export default function ManageContact() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab"
+            className="tab !min-w-[150px]"
             aria-label="Manage Contacts Post"
             defaultChecked
           />
@@ -38,7 +39,23 @@ export default function ManageContact() {
             role="tabpanel"
             className="tab-content border-t border-gray-400 border-x-0 p-2  overflow-y-auto border-b-0"
           >
-            Tab content 2
+            <div
+              className="w-full grid gap-5"
+              style={{
+                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              }}
+            >
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+              <ManageContactCard></ManageContactCard>
+            </div>
           </div>
         </div>
       </div>
