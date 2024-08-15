@@ -1,4 +1,4 @@
-import { FaQuoteLeft, FaUserEdit, FaTrash, FaQuoteRight } from "react-icons/fa";
+import { FaQuoteLeft, FaTrash, FaQuoteRight } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 export default function ManageQuoteCard({
@@ -19,24 +19,6 @@ export default function ManageQuoteCard({
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your quote has been deleted.", "success");
         // Add delete functionality here
-      }
-    });
-  };
-
-  // Function to handle update confirmation
-  const handleUpdate = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "Do you want to update this quote?",
-      icon: "info",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, update it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire("Updated!", "Your quote has been updated.", "success");
-        // Add update functionality here
       }
     });
   };
@@ -63,13 +45,7 @@ export default function ManageQuoteCard({
 
       {/* Action Buttons */}
       <div className="flex justify-between">
-        <button
-          onClick={handleUpdate}
-          className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          <FaUserEdit className="mr-2" />
-          Update
-        </button>
+        <span></span>
         <button
           onClick={handleDelete}
           className="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"

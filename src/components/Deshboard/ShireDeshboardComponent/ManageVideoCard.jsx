@@ -1,31 +1,8 @@
 import { motion } from "framer-motion";
-import {
-  FaPlay,
-  FaCalendarAlt,
-  FaUserAlt,
-  FaEdit,
-  FaTrash,
-} from "react-icons/fa";
+import { FaPlay, FaCalendarAlt, FaUserAlt, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 export default function ManageVideoCard() {
-  const handleUpdate = () => {
-    Swal.fire({
-      title: "Update Video",
-      text: "Are you sure you want to update this video?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, update it!",
-      cancelButtonText: "Cancel",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire("Updated!", "Your video has been updated.", "success");
-      }
-    });
-  };
-
   const handleDelete = () => {
     Swal.fire({
       title: "Delete Video",
@@ -83,13 +60,7 @@ export default function ManageVideoCard() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 mt-4">
-          <button
-            onClick={handleUpdate}
-            className="flex items-center px-3 py-1 text-sm text-white bg-blue-500 rounded hover:bg-blue-600 transition-colors duration-300"
-          >
-            <FaEdit className="mr-2" />
-            Update
-          </button>
+          <span></span>
           <button
             onClick={handleDelete}
             className="flex items-center px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600 transition-colors duration-300"

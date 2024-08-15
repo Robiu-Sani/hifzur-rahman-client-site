@@ -1,10 +1,4 @@
-import {
-  FaImage,
-  FaCalendarAlt,
-  FaTags,
-  FaEdit,
-  FaTrash,
-} from "react-icons/fa";
+import { FaImage, FaCalendarAlt, FaTags, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import image from "../../../image/bgb1.jpg";
 
@@ -30,24 +24,6 @@ export default function ManageNewsCard({
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your news post has been deleted.", "success");
         // Add delete functionality here
-      }
-    });
-  };
-
-  // Function to handle update confirmation
-  const handleUpdate = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "Do you want to update this post?",
-      icon: "info",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, update it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire("Updated!", "Your news post has been updated.", "success");
-        // Add update functionality here
       }
     });
   };
@@ -102,13 +78,7 @@ export default function ManageNewsCard({
 
       {/* Action Buttons */}
       <div className="flex justify-between">
-        <button
-          onClick={handleUpdate}
-          className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          <FaEdit className="mr-2" />
-          Update
-        </button>
+        <span></span>
         <button
           onClick={handleDelete}
           className="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"

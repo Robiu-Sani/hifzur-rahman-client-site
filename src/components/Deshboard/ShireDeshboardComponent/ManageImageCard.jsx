@@ -1,27 +1,12 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import image1 from "../../../image/bgb1.jpg";
 
 export default function ManageImageCard() {
   const [selectedImage, setSelectedImage] = useState(null);
   const imageTitle = "Sample Image Title"; // Update the title as needed
   const imageDate = "August 15, 2024"; // Update the date as needed
-
-  const handleUpdate = () => {
-    Swal.fire({
-      title: "Update Image",
-      text: "Are you sure you want to update this image?",
-      icon: "info",
-      showCancelButton: true,
-      confirmButtonText: "Yes, update it!",
-      cancelButtonText: "No, cancel!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire("Updated!", "The image has been updated.", "success");
-      }
-    });
-  };
 
   const handleDelete = () => {
     Swal.fire({
@@ -61,12 +46,7 @@ export default function ManageImageCard() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-3 px-2 pb-2 mt-4">
-        <button
-          onClick={handleUpdate}
-          className="flex items-center px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition duration-300"
-        >
-          <FaEdit className="mr-2" /> Update
-        </button>
+        <span></span>
         <button
           onClick={handleDelete}
           className="flex items-center px-4 py-2 bg-red-600 text-white rounded shadow hover:bg-red-700 transition duration-300"

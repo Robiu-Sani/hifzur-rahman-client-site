@@ -9,22 +9,6 @@ export default function ManageBlogCard() {
       : description;
   };
 
-  const handleUpdate = () => {
-    Swal.fire({
-      title: "Update Blog",
-      text: "Are you sure you want to update this blog?",
-      icon: "info",
-      showCancelButton: true,
-      confirmButtonText: "Yes, update it!",
-      cancelButtonText: "No, cancel!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Perform the update action here
-        Swal.fire("Updated!", "The blog has been updated.", "success");
-      }
-    });
-  };
-
   const handleDelete = () => {
     Swal.fire({
       title: "Delete Blog",
@@ -61,12 +45,7 @@ export default function ManageBlogCard() {
         Read more...
       </Link>
       <div className="grid mt-5 grid-cols-2 gap-3">
-        <button
-          onClick={handleUpdate}
-          className="px-4 p-1 rounded bg-blue-500 text-white shadow font-bold hover:bg-blue-600 transition duration-300"
-        >
-          Update
-        </button>
+        <span></span>
         <button
           onClick={handleDelete}
           className="px-4 p-1 rounded bg-red-500 text-white shadow font-bold hover:bg-red-600 transition duration-300"
