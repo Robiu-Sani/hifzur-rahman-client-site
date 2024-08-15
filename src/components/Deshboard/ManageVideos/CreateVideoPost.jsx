@@ -1,13 +1,34 @@
 import { useForm } from "react-hook-form";
 import { FaVideo } from "react-icons/fa";
+import useAxiosSource from "../../customHooks/useAxiousSorce";
+import Swal from "sweetalert2";
 
 export default function CreateVideoPost() {
   const { register, handleSubmit, reset } = useForm();
+  const { axiosSource } = useAxiosSource();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const currentDateTime = new Date().toLocaleString();
-    console.log({ ...data, date: currentDateTime });
-    reset();
+    const MainData = { ...data, date: currentDateTime };
+
+    try {
+      await axiosSource.post("/videos", MainData);
+      reset();
+      Swal.fire({
+        icon: "success",
+        title: "Post Created",
+        text: "Your video post has been successfully created.",
+        confirmButtonText: "OK",
+      });
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "There was an error creating the video post.",
+        confirmButtonText: "Try Again",
+      });
+    }
   };
 
   return (

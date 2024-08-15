@@ -51,7 +51,7 @@ export default function ManageBlogCard() {
       <h3 className="text-lg font-bold text-green-900">Blog Title</h3>
       <p className="text-green-700 mb-5">
         {truncateDescription(
-          "This is a sample blog description that can be truncated if too long."
+          "This is a sample blog description that can be truncated if too long.This is a sample blog description that can be truncated if too long.This is a sample blog description that can be truncated if too long."
         )}
       </p>
       <Link

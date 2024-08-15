@@ -1,32 +1,76 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaRegImage } from "react-icons/fa";
+import useAxiosSource from "../../customHooks/useAxiousSorce";
+import Swal from "sweetalert2";
 
 export default function CreateBlogPost() {
   const { register, handleSubmit, watch, reset } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
+  const { axiosSource } = useAxiosSource();
 
-  const onSubmit = (data) => {
-    const currentDateTime = new Date().toLocaleString();
-    console.log({ ...data, date: currentDateTime });
-    reset();
-    setImagePreview(null); // Clear image preview after submit
+  useEffect(() => {
+    const subscription = watch((value) => {
+      if (value.image && value.image[0]) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setImagePreview(reader.result);
+        };
+        reader.readAsDataURL(value.image[0]);
+        setImageFile(value.image[0]);
+      } else {
+        setImagePreview(null);
+        setImageFile(null);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [watch]);
+
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("date", new Date().toLocaleString());
+    if (imageFile) formData.append("image", imageFile);
+
+    try {
+      const response = await axiosSource.post("/blogs", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response);
+      reset();
+      setImagePreview(null);
+
+      Swal.fire({
+        title: "Success!",
+        text: "Blog post created successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error creating the blog post.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      console.error("Error creating blog post:", error);
+    }
   };
-
-  // Watch image file input to update preview
-  const imageFile = watch("image");
-  if (imageFile && imageFile[0]) {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImagePreview(reader.result);
-    };
-    reader.readAsDataURL(imageFile[0]);
-  }
 
   return (
     <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
       <h2 className="text-2xl font-bold mb-4">Create Blog Post</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-4"
+        method="POST"
+        action="/blogs"
+      >
         {/* Title Input */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -59,7 +103,7 @@ export default function CreateBlogPost() {
             Upload Image
           </label>
           <input
-            {...register("image", { required: true })}
+            {...register("image")}
             type="file"
             accept="image/*"
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"

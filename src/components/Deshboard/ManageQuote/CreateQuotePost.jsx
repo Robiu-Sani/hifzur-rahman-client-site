@@ -1,12 +1,30 @@
 import { useForm } from "react-hook-form";
+import useAxiosSource from "../../customHooks/useAxiousSorce";
+import Swal from "sweetalert2";
 
 export default function CreateQuotePost() {
   const { register, handleSubmit, reset } = useForm();
+  const { axiosSource } = useAxiosSource();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const currentDateTime = new Date().toLocaleString();
-    console.log({ ...data, date: currentDateTime });
-    reset();
+    const formData = { ...data, date: currentDateTime };
+    try {
+      await axiosSource.post("/quotes", formData);
+      reset();
+      Swal.fire({
+        icon: "success",
+        title: "Success!",
+        text: "Quote post created successfully.",
+      });
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: "Failed to create quote post.",
+      });
+    }
   };
 
   return (

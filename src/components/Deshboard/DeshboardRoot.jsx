@@ -4,6 +4,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import { Outlet } from "react-router-dom";
 import LeftNav from "./DeshboardNav/LeftNav";
 import NavTop from "./DeshboardNav/NavTop";
+import { IoLogOut } from "react-icons/io5";
 
 export default function DashboardRoot() {
   const [callNav, setCallNav] = useState(false);
@@ -15,12 +16,15 @@ export default function DashboardRoot() {
           callNav ? "left-0" : "-left-[270px]"
         }`}
       >
-        <div className="w-full py-7">
+        <div className="w-full relative py-7">
           <h1 className="text-gradient font-bold text-center text-2xl">
             Deshboard
           </h1>
         </div>
         <LeftNav></LeftNav>
+        <button className="w-[246px] bg-[#003d3d] absolute bottom-2 gap-2 rounded flex justify-center border border-[#cfb46b7e] items-center text-[#cfb56b] font-bold p-2 cursor-pointer">
+          <IoLogOut /> Log Out
+        </button>
       </div>
 
       {/* Swap Button */}

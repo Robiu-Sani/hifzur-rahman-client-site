@@ -1,16 +1,42 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaImage } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useAxiosSource from "../../customHooks/useAxiousSorce";
 
 export default function CreateNewsPost() {
   const { register, handleSubmit, watch, reset } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
+  const { axiosSource } = useAxiosSource();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const currentDateTime = new Date().toLocaleString();
-    console.log({ ...data, date: currentDateTime });
-    reset();
-    setImagePreview(null); // Clear image preview after submit
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("category", data.category);
+    formData.append("publicationDate", data.publicationDate);
+    formData.append("tags", data.tags);
+    formData.append("date", currentDateTime);
+
+    try {
+      await axiosSource.post("/news", formData);
+      Swal.fire({
+        icon: "success",
+        title: "Success!",
+        text: "News post created successfully.",
+      });
+      reset();
+      setImagePreview(null); // Clear image preview after submit
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
+    }
   };
 
   // Watch image file input to update preview

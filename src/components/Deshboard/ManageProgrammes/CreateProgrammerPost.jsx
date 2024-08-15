@@ -1,16 +1,38 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaImage } from "react-icons/fa";
+import useAxiosSource from "../../customHooks/useAxiousSorce";
+import Swal from "sweetalert2";
 
 export default function CreateProgrammerPost() {
   const { register, handleSubmit, watch, reset } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
+  const { axiosSource } = useAxiosSource();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const currentDateTime = new Date().toLocaleString();
-    console.log({ ...data, date: currentDateTime });
-    reset();
-    setImagePreview(null); // Clear image preview after submit
+    const MainData = { ...data, date: currentDateTime };
+
+    try {
+      await axiosSource.post("/programms", MainData);
+      reset();
+      setImagePreview(null); // Clear image preview after submit
+
+      Swal.fire({
+        title: "Success!",
+        text: "Programmer post created successfully.",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error creating the post.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    }
   };
 
   // Watch image file input to update preview
