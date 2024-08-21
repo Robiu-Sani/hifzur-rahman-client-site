@@ -11,10 +11,10 @@ export default function LandingHome() {
   return (
     <div className="w-full">
       <Banner></Banner>
+      <AboutSection></AboutSection>
       <VideoSection></VideoSection>
       <BookSection></BookSection>
       <ServicesShowwithBg></ServicesShowwithBg>
-      <AboutSection></AboutSection>
       <BlogSection></BlogSection>
       <ImageSections></ImageSections>
       <FAQSection></FAQSection>

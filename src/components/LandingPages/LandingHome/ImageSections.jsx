@@ -53,7 +53,7 @@ export default function ImageSections() {
         ))}
       </div>
       <Link
-        to={"/books"}
+        to={"/images"}
         className="px-5 p-2 rounded hover:scale-110 transform transition duration-300 bg-gradient text-yellow-500 z-10 shadow font-bold"
       >
         See All Images

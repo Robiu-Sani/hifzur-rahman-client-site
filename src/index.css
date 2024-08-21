@@ -23,9 +23,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+li {
+  font-weight: 400;
+}
 li > .active {
   background: none !important;
   color: goldenrod !important;
+  font-weight: 400;
 }
 .navActive > .active {
   padding-left: 10px;

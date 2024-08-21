@@ -8,11 +8,11 @@ export default function PageBanner({ Title }) {
       className="w-full pt-[60px]  min-h-[400px] bg-center  !overflow-hidden flex justify-center items-center bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${bannerBg})` }}
     >
-      <div className="absolute  container w-full py-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="absolute overflow-hidden  container w-full py-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="w-full h-auto sm:h-[400px] overflow-hidden flex  justify-center items-center p-5">
           <img src={img1} alt="" className="max-w-full max-h-full" />
         </div>
-        <div className="w-full flex h-auto sm:h-[400px] overflow-hidden justify-center items-center p-5">
+        <div className="w-full hidden  md:flex h-auto sm:h-[400px] overflow-hidden justify-center items-center p-5">
           <img src={img2} alt="" className="max-w-full max-h-full" />
         </div>
       </div>

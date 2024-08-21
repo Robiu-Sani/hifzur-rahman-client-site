@@ -5,69 +5,70 @@ export default function NavBar() {
   const navItem = (
     <>
       <li>
-        <NavLink to={"/"} className="text-white">
-          Home
+        <NavLink to={"/"} className="text-[#0fb4b4] text-xl">
+          হোম
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/about"} className="text-white">
-          About
+        <NavLink to={"/about"} className="text-[#0fb4b4] text-xl">
+          আমার সম্পর্কে
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/blog"} className="text-white">
-          Blog
+        <NavLink to={"/blog"} className="text-[#0fb4b4] text-xl">
+          ব্লগ
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/news"} className="text-white">
-          News
+        <NavLink to={"/news"} className="text-[#0fb4b4] text-xl">
+          সংবাদ
         </NavLink>
       </li>
 
       <li>
         <details>
-          <summary className="text-white">Services</summary>
+          <summary className="text-[#0fb4b4] text-xl">সেবা সমূহ</summary>
           <ul className="p-2 bg-gradient rounded">
             <li>
-              <NavLink to={"/videos"} className="text-white">
-                Videos
+              <NavLink to={"/videos"} className="text-[#0fb4b4] text-xl">
+                ভিডিও
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/books"} className="text-white">
-                Books
+              <NavLink to={"/books"} className="text-[#0fb4b4] text-xl">
+                বই
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/images"} className="text-white">
-                Images
+              <NavLink to={"/images"} className="text-[#0fb4b4] text-xl">
+                ছবি
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/programmes"} className="text-white">
-                Programmes
+              <NavLink to={"/programmes"} className="text-[#0fb4b4] text-xl">
+                প্রোগ্রাম
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/quote"} className="text-white">
-                Quote
+              <NavLink to={"/quote"} className="text-[#0fb4b4] text-xl">
+                উক্তি
               </NavLink>
             </li>
           </ul>
         </details>
       </li>
       <li>
-        <NavLink to={"/contact"} className="text-white">
-          Contact
+        <NavLink to={"/contact"} className="text-[#0fb4b4] text-xl">
+          যোগাযোগ
         </NavLink>
       </li>
     </>
   );
+
   return (
     <div className="w-full z-[1000] fixed top-0">
       <div className="container mx-auto">
-        <div className="navbar bg-none">
+        <div className="navbar">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -92,24 +93,24 @@ export default function NavBar() {
               </div>
               <ul
                 tabIndex={0}
-                className="menu  bg-gradient font-bold menu-sm dropdown-content bg-base-100 rounded mt-3 w-52 p-2 shadow"
+                className="menu bg-gradient font-bold menu-sm dropdown-content rounded mt-3 w-52 p-2 shadow"
               >
                 {navItem}
               </ul>
             </div>
             <Link to="/">
-              <img src={logo} alt="logo" className="h-[30px]" />
+              <img src={logo} alt="লোগো" className="h-[30px]" />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu font-bold menu-horizontal  px-1">{navItem}</ul>
+            <ul className="menu font-bold menu-horizontal px-1">{navItem}</ul>
           </div>
           <div className="navbar-end">
             <Link
               to={"/login"}
               className="px-5 p-2 rounded hover:scale-110 transform transition duration-300 bg-gradient text-yellow-600 shadow font-bold"
             >
-              Login
+              লগইন
             </Link>
           </div>
         </div>
