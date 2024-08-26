@@ -1,7 +1,54 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../image/logo.png";
+import { useEffect, useState } from "react";
+import useAxiosSource from "../customHooks/useAxiousSorce";
+import { IoMdLogOut } from "react-icons/io";
+import Swal from "sweetalert2";
 
 export default function NavBar() {
+  const [loggedIn, setLoggedIn] = useState(null);
+  const { axiosSource } = useAxiosSource();
+  const email = localStorage.getItem("userEmail");
+
+  useEffect(() => {
+    if (email) {
+      axiosSource
+        .get(`/users/${email}`)
+        .then((res) => {
+          if (res.data) {
+            setLoggedIn(res.data);
+          }
+        })
+        .catch((err) => {
+          console.error("Error fetching user data:", err);
+        });
+    } else {
+      console.log("User not logged in");
+    }
+  }, [email, axiosSource]);
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out of your account!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log me out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("userEmail");
+        setLoggedIn(null);
+        Swal.fire(
+          "Logged Out",
+          "You have been successfully logged out.",
+          "success"
+        );
+      }
+    });
+  };
+
   const navItem = (
     <>
       <li>
@@ -24,7 +71,6 @@ export default function NavBar() {
           সংবাদ
         </NavLink>
       </li>
-
       <li>
         <details>
           <summary className="text-[#0fb4b4] text-xl">সেবা সমূহ</summary>
@@ -106,12 +152,33 @@ export default function NavBar() {
             <ul className="menu font-bold menu-horizontal px-1">{navItem}</ul>
           </div>
           <div className="navbar-end">
-            <Link
-              to={"/login"}
-              className="px-5 p-2 rounded hover:scale-110 transform transition duration-300 bg-gradient text-yellow-600 shadow font-bold"
-            >
-              লগইন
-            </Link>
+            {loggedIn ? (
+              loggedIn.status === "Admin" ? (
+                <Link
+                  to={"/deshboard"}
+                  className="px-5 p-2 rounded hover:scale-110 transform transition duration-300 bg-gradient text-yellow-600 shadow font-bold"
+                >
+                  Dashboard
+                </Link>
+              ) : (
+                <div className="flex justify-center items-center gap-3">
+                  <small>{loggedIn.name}</small>
+                  <button
+                    onClick={handleLogout}
+                    className="px-5 p-2 rounded hover:scale-110 transform transition duration-300 bg-gradient text-yellow-600 shadow font-bold"
+                  >
+                    <IoMdLogOut />
+                  </button>
+                </div>
+              )
+            ) : (
+              <Link
+                to={"/login"}
+                className="px-5 p-2 rounded hover:scale-110 transform transition duration-300 bg-gradient text-yellow-600 shadow font-bold"
+              >
+                লগইন
+              </Link>
+            )}
           </div>
         </div>
       </div>

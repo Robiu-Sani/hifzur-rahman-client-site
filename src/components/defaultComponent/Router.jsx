@@ -23,6 +23,9 @@ import ManageProgrammes from "../Deshboard/ManageProgrammes/ManageProgrammes";
 import ManageNews from "../Deshboard/ManageNews/ManageNews";
 import ManageQuote from "../Deshboard/ManageQuote/ManageQuote";
 import ManageContact from "../Deshboard/ManageContact/ManageContact";
+import LoginForm from "../LandingPages/authcation/LoginForm";
+import SignupForm from "../LandingPages/authcation/SignupForm";
+import ManageBooks from "../Deshboard/ManageBooks/ManageBooks";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +73,14 @@ export const router = createBrowserRouter([
         path: "/images",
         element: <Images></Images>,
       },
+      {
+        path: "/login",
+        element: <LoginForm></LoginForm>,
+      },
+      {
+        path: "/signup",
+        element: <SignupForm></SignupForm>,
+      },
     ],
   },
   {
@@ -107,6 +118,10 @@ export const router = createBrowserRouter([
       {
         path: "/managecontact",
         element: <ManageContact></ManageContact>,
+      },
+      {
+        path: "/managebooks",
+        element: <ManageBooks></ManageBooks>,
       },
     ],
   },

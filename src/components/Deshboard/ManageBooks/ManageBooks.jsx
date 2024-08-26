@@ -1,11 +1,12 @@
+// import ManageBooksCard from "../ShireDeshboardComponent/ManageBooksCard";
 import ManageNewsCard from "../ShireDeshboardComponent/ManageNewsCard";
-import CreateNewsPost from "./CreateNewsPost";
+import CreateBooksPost from "./CreateBooksPost";
 
-export default function ManageNews() {
+export default function ManageBooks() {
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
-        <h3>News Management Page</h3>
+        <h3>Books Management Page</h3>
       </div>
       {/* tab contant start grom here  */}
       <div className="w-full p-2">
@@ -18,13 +19,13 @@ export default function ManageNews() {
             name="my_tabs_1"
             role="tab"
             className="tab !min-w-[150px]"
-            aria-label="Create Newses Post"
+            aria-label="Create Bookses Post"
           />
           <div
             role="tabpanel"
             className="tab-content border-t border-gray-400 p-2  border-x-0 overflow-y-auto border-b-0"
           >
-            <CreateNewsPost></CreateNewsPost>
+            <CreateBooksPost></CreateBooksPost>
           </div>
 
           <input
@@ -32,7 +33,7 @@ export default function ManageNews() {
             name="my_tabs_1"
             role="tab"
             className="tab !min-w-[150px]"
-            aria-label="Manage Newses Post"
+            aria-label="Manage Bookses Post"
             defaultChecked
           />
           <div
@@ -45,6 +46,10 @@ export default function ManageNews() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
+              <ManageNewsCard></ManageNewsCard>
               <ManageNewsCard></ManageNewsCard>
               <ManageNewsCard></ManageNewsCard>
               <ManageNewsCard></ManageNewsCard>

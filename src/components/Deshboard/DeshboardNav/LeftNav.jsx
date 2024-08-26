@@ -33,6 +33,13 @@ export default function LeftNav() {
         Manage Images
       </NavLink>
       <NavLink
+        to={`/managebooks`}
+        className={`text-md text-[#cfb56b] border-b border-b-[#cfb46b75]  font-bold py-2 hover:pl-3 w-full  flex items-center gap-3`}
+      >
+        <IoImageSharp className="text-xl text-[#cfb56b]" />
+        Manage Books
+      </NavLink>
+      <NavLink
         to={`/managevideos`}
         className={`text-md text-[#cfb56b] border-b border-b-[#cfb46b75]  font-bold py-2 hover:pl-3 w-full  flex items-center gap-3`}
       >
