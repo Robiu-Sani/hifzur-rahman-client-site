@@ -1,7 +1,9 @@
+import useVideos from "../../customHooks/useVideos";
 import ManageVideoCard from "../ShireDeshboardComponent/ManageVideoCard";
 import CreateVideoPost from "./CreateVideoPost";
 
 export default function ManageVideos() {
+  const { videos } = useVideos();
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
@@ -45,15 +47,9 @@ export default function ManageVideos() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ManageVideoCard></ManageVideoCard>
-              <ManageVideoCard></ManageVideoCard>
-              <ManageVideoCard></ManageVideoCard>
-              <ManageVideoCard></ManageVideoCard>
-              <ManageVideoCard></ManageVideoCard>
-              <ManageVideoCard></ManageVideoCard>
-              <ManageVideoCard></ManageVideoCard>
-              <ManageVideoCard></ManageVideoCard>
-              <ManageVideoCard></ManageVideoCard>
+              {videos.map((item, idx) => (
+                <ManageVideoCard key={idx} item={item}></ManageVideoCard>
+              ))}
             </div>
           </div>
         </div>

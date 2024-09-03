@@ -5,23 +5,22 @@ import useAxiosSource from "../../customHooks/useAxiousSorce";
 import Swal from "sweetalert2";
 
 export default function CreateBlogPost() {
-  const { register, handleSubmit, watch, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
-  const [imageFile, setImageFile] = useState(null);
   const { axiosSource } = useAxiosSource();
 
   useEffect(() => {
     const subscription = watch((value) => {
-      if (value.image && value.image[0]) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setImagePreview(reader.result);
-        };
-        reader.readAsDataURL(value.image[0]);
-        setImageFile(value.image[0]);
+      if (value.imageUrl) {
+        setImagePreview(value.imageUrl);
       } else {
         setImagePreview(null);
-        setImageFile(null);
       }
     });
 
@@ -29,18 +28,15 @@ export default function CreateBlogPost() {
   }, [watch]);
 
   const onSubmit = async (data) => {
-    const formData = new FormData();
-    formData.append("title", data.title);
-    formData.append("description", data.description);
-    formData.append("date", new Date().toLocaleString());
-    if (imageFile) formData.append("image", imageFile);
+    const blogPostData = {
+      title: data.title,
+      description: data.description,
+      imageUrl: data.imageUrl,
+      date: new Date().toLocaleString(),
+    };
 
     try {
-      const response = await axiosSource.post("/blogs", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axiosSource.post("/blogs", blogPostData);
       console.log(response);
       reset();
       setImagePreview(null);
@@ -65,23 +61,23 @@ export default function CreateBlogPost() {
   return (
     <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
       <h2 className="text-2xl font-bold mb-4">Create Blog Post</h2>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="space-y-4"
-        method="POST"
-        action="/blogs"
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Title Input */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Title
           </label>
           <input
-            {...register("title", { required: true })}
+            {...register("title", { required: "Title is required" })}
             type="text"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className={`w-full px-3 py-2 border ${
+              errors.title ? "border-red-500" : "border-gray-300"
+            } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
             placeholder="Enter blog title"
           />
+          {errors.title && (
+            <p className="text-red-500 text-sm mt-1">{errors.title.message}</p>
+          )}
         </div>
 
         {/* Description Input */}
@@ -90,24 +86,40 @@ export default function CreateBlogPost() {
             Description
           </label>
           <textarea
-            {...register("description", { required: true })}
+            {...register("description", {
+              required: "Description is required",
+            })}
             rows="4"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className={`w-full px-3 py-2 border ${
+              errors.description ? "border-red-500" : "border-gray-300"
+            } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
             placeholder="Enter blog description"
           ></textarea>
+          {errors.description && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.description.message}
+            </p>
+          )}
         </div>
 
-        {/* Image Upload */}
+        {/* Image URL Input */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Upload Image
+            Image URL
           </label>
           <input
-            {...register("image")}
-            type="file"
-            accept="image/*"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            {...register("imageUrl", { required: "Image URL is required" })}
+            type="url"
+            className={`w-full px-3 py-2 border ${
+              errors.imageUrl ? "border-red-500" : "border-gray-300"
+            } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+            placeholder="Enter image URL"
           />
+          {errors.imageUrl && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.imageUrl.message}
+            </p>
+          )}
         </div>
 
         {/* Image Preview */}

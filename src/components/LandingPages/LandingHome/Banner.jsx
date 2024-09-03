@@ -26,13 +26,13 @@ export default function Banner() {
             </p>
             <div className="w-full my-5 flex justify-center items-center gap-5">
               <Link
-                to={"/login"}
+                to={"/videos"}
                 className="px-5 p-2 border border-yellow-600 h-[40px] flex justify-center items-center gap-3 rounded bg-gradient text-yellow-600 shadow font-bold"
               >
                 আমাদের সেবা নিন
               </Link>
               <Link
-                to={"/login"}
+                to={"/contact"}
                 className="px-5 p-2 border border-yellow-600 h-[40px] flex justify-center items-center gap-3 rounded bg-gradient text-yellow-600 shadow font-bold"
               >
                 আমাদের সাথে যোগাযোগ করুন

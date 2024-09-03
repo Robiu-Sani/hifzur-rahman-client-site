@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import BookCard from "../../SharedComponent/BookCard";
 import image from "../../../image/bg4.png";
+import useBooks from "../../customHooks/useBooks";
 
 export default function BookSection() {
+  const { books } = useBooks();
+  const lastThreebooks = books.slice(-3);
   return (
     <div className="w-full bg-[#3171703a] py-10 flex flex-col gap-8 justify-center items-center overflow-hidden relative">
       <img src={image} alt="" className="max-h-[90%] absolute z-0 opacity-40" />
@@ -13,9 +16,9 @@ export default function BookSection() {
         Here you can See Islamic Book writen by Dr.Hifzur Rahman.
       </p>
       <div className="container mx-auto z-10 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
+        {lastThreebooks.map((item, idx) => (
+          <BookCard key={idx} item={item}></BookCard>
+        ))}
       </div>
       <Link
         to={"/books"}
