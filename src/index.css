@@ -17,7 +17,10 @@
   font-weight: 400;
   font-style: italic;
 } */
-
+iframe {
+  width: 100% !important;
+  height: 200px !important;
+}
 .text-gradient {
   background: linear-gradient(135deg, #c3ceb7, #cfb56b, #fdc55d);
   -webkit-background-clip: text;
