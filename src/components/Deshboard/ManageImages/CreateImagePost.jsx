@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { FaRegImage } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useAxiosSource from "../../customHooks/useAxiousSorce";
+import useImages from "../../customHooks/useImage";
 
 export default function CreateImagePost() {
   const {
@@ -11,6 +14,8 @@ export default function CreateImagePost() {
     formState: { errors },
   } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
+  const { axiosSource } = useAxiosSource();
+  const { refetch } = useImages();
 
   useEffect(() => {
     const subscription = watch((value) => {
@@ -24,11 +29,34 @@ export default function CreateImagePost() {
     return () => subscription.unsubscribe();
   }, [watch]);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const currentDateTime = new Date().toLocaleString();
-    console.log({ ...data, date: currentDateTime });
-    reset();
-    setImagePreview(null); // Clear image preview after submit
+    const finalData = { ...data, date: currentDateTime };
+
+    try {
+      await axiosSource.post("/images", finalData);
+      refetch();
+
+      // Show success message
+      Swal.fire({
+        title: "Success!",
+        text: "Image post created successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+
+      reset();
+      setImagePreview(null); // Clear image preview after submit
+    } catch (error) {
+      // Show error message
+      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error creating the image post.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
+    }
   };
 
   return (

@@ -1,7 +1,9 @@
+import useImages from "../../customHooks/useImage";
 import ManageImageCard from "../ShireDeshboardComponent/ManageImageCard";
 import CreateImagePost from "./CreateImagePost";
 
 export default function ManageImages() {
+  const { images } = useImages();
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
@@ -45,21 +47,9 @@ export default function ManageImages() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
-              <ManageImageCard></ManageImageCard>
+              {images.map((image, idx) => (
+                <ManageImageCard key={idx} image={image}></ManageImageCard>
+              ))}
             </div>
           </div>
         </div>
