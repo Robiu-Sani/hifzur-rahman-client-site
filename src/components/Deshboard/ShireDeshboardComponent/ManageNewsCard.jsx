@@ -1,17 +1,14 @@
 import { FaImage, FaCalendarAlt, FaTags, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
-import image from "../../../image/bgb1.jpg";
+import useAxiosSource from "../../customHooks/useAxiousSorce";
+import useNews from "../../customHooks/useNews";
 
-export default function ManageNewsCard({
-  title = "Sample News Title",
-  description = "Sample news description goes here. It provides a brief overview of the news article.",
-  category = "Technology",
-  publicationDate = "2024-08-15",
-  tags = "news, sample, technology",
-  imageSrc = image,
-}) {
+export default function ManageNewsCard({ news }) {
+  const { axiosSource } = useAxiosSource();
+  const { refetch } = useNews();
+
   // Function to handle delete confirmation
-  const handleDelete = () => {
+  const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -22,66 +19,65 @@ export default function ManageNewsCard({
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        axiosSource.delete(`/news/${id}`).then(() => refetch());
         Swal.fire("Deleted!", "Your news post has been deleted.", "success");
-        // Add delete functionality here
       }
     });
   };
 
   return (
-    <div className="p-2 bg-white shadow-lg rounded-lg border border-gray-200">
+    <div className="relative bg-white shadow-lg rounded-lg border border-gray-200 overflow-hidden">
       {/* Image Display */}
-      <img
-        src={imageSrc}
-        alt="News"
-        className="w-full h-auto max-h-64 object-cover rounded-md shadow-md"
-      />
+      <div className="w-full h-48">
+        {news.imageUrl ? (
+          <img
+            src={news.imageUrl}
+            alt="News"
+            className="w-full h-full object-cover"
+          />
+        ) : null}
+      </div>
 
-      {/* Title */}
-      <div className="mb-4">
-        <h3 className="text-xl font-semibold text-gray-800">
+      {/* Content Section */}
+      <div className="p-4">
+        {/* Title */}
+        <h3 className="text-2xl font-semibold text-gray-800 mb-2">
           <FaImage className="inline mr-2 text-indigo-600" />
-          <span>{title}</span>
+          {news.title || "No Title"}
         </h3>
-      </div>
 
-      {/* Description */}
-      <div className="mb-4">
-        <small className="text-gray-700">{description}</small>
-      </div>
-
-      {/* Category */}
-      <div className="mb-4">
-        <p className="text-gray-700">
-          <strong>Category: </strong>
-          {category}
+        {/* Description */}
+        <p className="text-gray-700 mb-4">
+          {news.description || "No description available."}
         </p>
-      </div>
 
-      {/* Publication Date */}
-      <div className="mb-4">
-        <p className="text-gray-700">
+        {/* Category */}
+        <p className="text-gray-700 mb-2">
+          <FaTags className="inline mr-2 text-green-600" />
+          <strong>Category: </strong>
+          {news.category || "Uncategorized"}
+        </p>
+
+        {/* Publication Date */}
+        <p className="text-gray-700 mb-2">
           <FaCalendarAlt className="inline mr-2 text-blue-600" />
           <strong>Publication Date: </strong>
-          {publicationDate}
+          {new Date(news.publicationDate).toLocaleDateString() || "N/A"}
         </p>
-      </div>
 
-      {/* Tags */}
-      <div className="mb-4">
+        {/* Tags */}
         <p className="text-gray-700">
           <FaTags className="inline mr-2 text-green-600" />
           <strong>Tags: </strong>
-          {tags}
+          {news.tags || "No tags available."}
         </p>
       </div>
 
       {/* Action Buttons */}
-      <div className="flex justify-between">
-        <span></span>
+      <div className="absolute bottom-4 right-4">
         <button
-          onClick={handleDelete}
-          className="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          onClick={() => handleDelete(news._id)}
+          className="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-150"
         >
           <FaTrash className="mr-2" />
           Delete

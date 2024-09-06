@@ -1,7 +1,9 @@
+import useNews from "../../customHooks/useNews";
 import ManageNewsCard from "../ShireDeshboardComponent/ManageNewsCard";
 import CreateNewsPost from "./CreateNewsPost";
 
 export default function ManageNews() {
+  const { news } = useNews();
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
@@ -17,7 +19,7 @@ export default function ManageNews() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab !min-w-[150px]"
+            className="tab !min-w-[170px]"
             aria-label="Create Newses Post"
           />
           <div
@@ -31,7 +33,7 @@ export default function ManageNews() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab !min-w-[150px]"
+            className="tab !min-w-[170px]"
             aria-label="Manage Newses Post"
             defaultChecked
           />
@@ -45,14 +47,9 @@ export default function ManageNews() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
+              {news.map((item, idx) => (
+                <ManageNewsCard key={idx} news={item}></ManageNewsCard>
+              ))}
             </div>
           </div>
         </div>

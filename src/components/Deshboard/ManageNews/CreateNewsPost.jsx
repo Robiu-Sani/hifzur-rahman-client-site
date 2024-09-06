@@ -3,10 +3,12 @@ import { useState } from "react";
 import { FaImage } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSource from "../../customHooks/useAxiousSorce";
+import useNews from "../../customHooks/useNews";
 
 export default function CreateNewsPost() {
   const { register, handleSubmit, reset } = useForm();
   const { axiosSource } = useAxiosSource();
+  const { refetch } = useNews();
 
   const onSubmit = async (data) => {
     const currentDateTime = new Date().toLocaleString();
@@ -21,7 +23,9 @@ export default function CreateNewsPost() {
     };
 
     try {
-      await axiosSource.post("/news", formData);
+      await axiosSource.post("/news", formData).then(() => {
+        refetch();
+      });
       Swal.fire({
         icon: "success",
         title: "সফল!",
@@ -48,7 +52,7 @@ export default function CreateNewsPost() {
             ইমেজ URL
           </label>
           <input
-            {...register("imageUrl", { required: true })}
+            {...register("imageUrl", { required: false })}
             type="url"
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             placeholder="ইমেজ URL লিখুন"
