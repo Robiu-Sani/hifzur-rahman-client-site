@@ -1,7 +1,14 @@
-import { MdDelete } from "react-icons/md";
-import AddNoteForm from "./AddNoteForm";
+import useBlogs from "../../customHooks/useBlogs";
+import useBooks from "../../customHooks/useBooks";
+import useImages from "../../customHooks/useImage";
+import useVideos from "../../customHooks/useVideos";
 
 export default function HomeContant() {
+  const { videos } = useVideos();
+  const { blogs } = useBlogs();
+  const { books } = useBooks();
+  const { images } = useImages();
+
   return (
     <div className="w-full mt-3">
       <div className="w-full grid grid-cols-1 gap-5 sm:grid-cols-5">
@@ -9,20 +16,20 @@ export default function HomeContant() {
           <h3>Total Informetion</h3>
           <div className="w-full grid grid-cols-4 mt-3 gap-3">
             <div className="w-full p-3 rounded-md shadow-md flex flex-col justify-center items-center gap-3">
-              <h1 className="text-4xl font-bold">0</h1>
+              <h1 className="text-4xl font-bold">{videos.length}</h1>
               <p>Videos</p>
             </div>
             <div className="w-full p-3 rounded-md shadow-md flex flex-col justify-center items-center gap-3">
-              <h1 className="text-4xl font-bold">0</h1>
-              <p>Videos</p>
+              <h1 className="text-4xl font-bold">{blogs.length}</h1>
+              <p>Blogs</p>
             </div>
             <div className="w-full p-3 rounded-md shadow-md flex flex-col justify-center items-center gap-3">
-              <h1 className="text-4xl font-bold">0</h1>
-              <p>Videos</p>
+              <h1 className="text-4xl font-bold">{images.length}</h1>
+              <p>Images</p>
             </div>
             <div className="w-full p-3 rounded-md shadow-md flex flex-col justify-center items-center gap-3">
-              <h1 className="text-4xl font-bold">0</h1>
-              <p>Videos</p>
+              <h1 className="text-4xl font-bold">{books.length}</h1>
+              <p>Books</p>
             </div>
           </div>
         </div>
@@ -45,80 +52,6 @@ export default function HomeContant() {
         </div>
       </div>
       {/* ------------------ secend content is running -------------------  */}
-      <div className="w-full my-3">
-        <h3 className="text-2xl font-bold p-3">Note</h3>
-
-        <div className="w-full grid  grid-cols-1 sm:grid-cols-2 gap-5">
-          <div className="w-full border rounded-md border-[#a6c4c2] p-2 flex flex-col gap-2 h-[360px] overflow-y-auto">
-            {/* --------- notes -----------  */}
-            <div className="w-full p-2 shadow-md  rounded ">
-              <small className="text-green-600"> 5:10pm</small>
-              <div className="w-full flex justify-between items-end">
-                <p className="text-sm text-gray-700">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Nulla, fugit.
-                </p>
-                <MdDelete className="ml-3 text-red-600 cursor-pointer" />
-              </div>
-            </div>
-            <div className="w-full p-2 shadow-md  rounded ">
-              <small className="text-green-600"> 5:10pm</small>
-              <div className="w-full flex justify-between items-end">
-                <p className="text-sm text-gray-700">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Nulla, fugit.
-                </p>
-                <MdDelete className="ml-3 text-red-600 cursor-pointer" />
-              </div>
-            </div>
-            <div className="w-full p-2 shadow-md  rounded ">
-              <small className="text-green-600"> 5:10pm</small>
-              <div className="w-full flex justify-between items-end">
-                <p className="text-sm text-gray-700">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Nulla, fugit.
-                </p>
-                <MdDelete className="ml-3 text-red-600 cursor-pointer" />
-              </div>
-            </div>
-            <div className="w-full p-2 shadow-md  rounded ">
-              <small className="text-green-600"> 5:10pm</small>
-              <div className="w-full flex justify-between items-end">
-                <p className="text-sm text-gray-700">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Nulla, fugit.
-                </p>
-                <MdDelete className="ml-3 text-red-600 cursor-pointer" />
-              </div>
-            </div>
-            <div className="w-full p-2 shadow-md  rounded ">
-              <small className="text-green-600"> 5:10pm</small>
-              <div className="w-full flex justify-between items-end">
-                <p className="text-sm text-gray-700">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Nulla, fugit.
-                </p>
-                <MdDelete className="ml-3 text-red-600 cursor-pointer" />
-              </div>
-            </div>
-            <div className="w-full p-2 shadow-md  rounded ">
-              <small className="text-green-600"> 5:10pm</small>
-              <div className="w-full flex justify-between items-end">
-                <p className="text-sm text-gray-700">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Nulla, fugit.
-                </p>
-                <MdDelete className="ml-3 text-red-600 cursor-pointer" />
-              </div>
-            </div>
-          </div>
-          {/* ----------- note form  ----------------- */}
-          <div className="w-full border rounded-md border-[#a6c4c2] p-2 flex flex-col gap-2 h-[360px] overflow-y-auto">
-            {/* --------- notes -----------  */}
-            <AddNoteForm></AddNoteForm>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
