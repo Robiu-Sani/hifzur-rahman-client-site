@@ -1,7 +1,9 @@
+import useContacts from "../../customHooks/useContacts";
 import ManageContactCard from "../ShireDeshboardComponent/ManageContactCard";
 import CreateContactAddress from "./CreateContactAddress";
 
 export default function ManageContact() {
+  const { contacts } = useContacts();
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
@@ -45,16 +47,12 @@ export default function ManageContact() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
-              <ManageContactCard></ManageContactCard>
+              {contacts.map((contact, idx) => (
+                <ManageContactCard
+                  key={idx}
+                  contact={contact}
+                ></ManageContactCard>
+              ))}
             </div>
           </div>
         </div>

@@ -1,7 +1,9 @@
+import useQuote from "../../customHooks/useQuote";
 import ManageQuoteCard from "../ShireDeshboardComponent/ManageQuoteCard";
 import CreateQuotePost from "./CreateQuotePost";
 
 export default function ManageQuote() {
+  const { quotes } = useQuote();
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
@@ -45,14 +47,9 @@ export default function ManageQuote() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ManageQuoteCard></ManageQuoteCard>
-              <ManageQuoteCard></ManageQuoteCard>
-              <ManageQuoteCard></ManageQuoteCard>
-              <ManageQuoteCard></ManageQuoteCard>
-              <ManageQuoteCard></ManageQuoteCard>
-              <ManageQuoteCard></ManageQuoteCard>
-              <ManageQuoteCard></ManageQuoteCard>
-              <ManageQuoteCard></ManageQuoteCard>
+              {quotes.map((quote, idx) => (
+                <ManageQuoteCard key={idx} quote={quote}></ManageQuoteCard>
+              ))}
             </div>
           </div>
         </div>

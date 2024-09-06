@@ -1,16 +1,20 @@
 import { useForm } from "react-hook-form";
 import useAxiosSource from "../../customHooks/useAxiousSorce";
 import Swal from "sweetalert2";
+import useContacts from "../../customHooks/useContacts";
 
 export default function CreateContactAddress() {
   const { register, handleSubmit, reset } = useForm();
   const { axiosSource } = useAxiosSource();
+  const { refetch } = useContacts();
 
   const onSubmit = async (data) => {
     const currentDateTime = new Date().toLocaleString();
     const formData = { ...data, date: currentDateTime };
     try {
-      await axiosSource.post("/contacts", formData);
+      await axiosSource.post("/contacts", formData).then(() => {
+        refetch();
+      });
       reset();
       Swal.fire({
         icon: "success",
