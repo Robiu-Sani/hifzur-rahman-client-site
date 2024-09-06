@@ -1,7 +1,9 @@
+import useProgramms from "../../customHooks/useProgramms";
 import ManageProgrammCard from "../ShireDeshboardComponent/ManageProgrammCard";
 import CreateProgrammerPost from "./CreateProgrammerPost";
 
 export default function ManageProgrammes() {
+  const { programms } = useProgramms();
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
@@ -45,16 +47,12 @@ export default function ManageProgrammes() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
-              <ManageProgrammCard></ManageProgrammCard>
+              {programms.map((programmer, idx) => (
+                <ManageProgrammCard
+                  programm={programmer}
+                  key={idx}
+                ></ManageProgrammCard>
+              ))}
             </div>
           </div>
         </div>

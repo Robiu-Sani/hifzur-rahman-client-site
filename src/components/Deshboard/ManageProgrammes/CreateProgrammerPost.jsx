@@ -1,20 +1,24 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaImage } from "react-icons/fa";
 import useAxiosSource from "../../customHooks/useAxiousSorce";
 import Swal from "sweetalert2";
+import useProgramms from "../../customHooks/useProgramms";
 
 export default function CreateProgrammerPost() {
   const { register, handleSubmit, watch, reset } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
   const { axiosSource } = useAxiosSource();
+  const { refetch } = useProgramms();
 
   const onSubmit = async (data) => {
     const currentDateTime = new Date().toLocaleString();
     const MainData = { ...data, date: currentDateTime };
 
     try {
-      await axiosSource.post("/programms", MainData);
+      await axiosSource.post("/programms", MainData).then(() => {
+        refetch();
+      });
       reset();
       setImagePreview(null); // Clear image preview after submit
 
@@ -37,9 +41,11 @@ export default function CreateProgrammerPost() {
 
   // Watch the URL input to update preview
   const imageUrl = watch("imageURL");
-  if (imageUrl) {
+
+  // Use useEffect to avoid setting imagePreview on every render
+  useEffect(() => {
     setImagePreview(imageUrl);
-  }
+  }, [imageUrl]);
 
   return (
     <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
