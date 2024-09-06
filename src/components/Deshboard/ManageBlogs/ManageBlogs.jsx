@@ -1,7 +1,9 @@
+import useBlogs from "../../customHooks/useBlogs";
 import ManageBlogCard from "../ShireDeshboardComponent/ManageBlogCard";
 import CreateBlogPost from "./CreateBlogPost";
 
 export default function ManageBlogs() {
+  const { blogs, refetch } = useBlogs();
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
@@ -45,15 +47,13 @@ export default function ManageBlogs() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ManageBlogCard></ManageBlogCard>
-              <ManageBlogCard></ManageBlogCard>
-              <ManageBlogCard></ManageBlogCard>
-              <ManageBlogCard></ManageBlogCard>
-              <ManageBlogCard></ManageBlogCard>
-              <ManageBlogCard></ManageBlogCard>
-              <ManageBlogCard></ManageBlogCard>
-              <ManageBlogCard></ManageBlogCard>
-              <ManageBlogCard></ManageBlogCard>
+              {blogs.map((blog, idx) => (
+                <ManageBlogCard
+                  blog={blog}
+                  refetch={refetch}
+                  key={idx}
+                ></ManageBlogCard>
+              ))}
             </div>
           </div>
         </div>

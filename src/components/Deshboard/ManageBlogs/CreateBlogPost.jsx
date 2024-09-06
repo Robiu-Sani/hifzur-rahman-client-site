@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { FaRegImage } from "react-icons/fa";
 import useAxiosSource from "../../customHooks/useAxiousSorce";
 import Swal from "sweetalert2";
+import useBlogs from "../../customHooks/useBlogs";
 
 export default function CreateBlogPost() {
   const {
@@ -14,6 +15,7 @@ export default function CreateBlogPost() {
   } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
   const { axiosSource } = useAxiosSource();
+  const { refetch } = useBlogs();
 
   useEffect(() => {
     const subscription = watch((value) => {
@@ -38,6 +40,7 @@ export default function CreateBlogPost() {
     try {
       const response = await axiosSource.post("/blogs", blogPostData);
       console.log(response);
+      refetch();
       reset();
       setImagePreview(null);
 
