@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import { FaBook } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSource from "../../customHooks/useAxiousSorce";
+import useBooks from "../../customHooks/useBooks";
 
 export default function CreateBooksPost() {
   const { register, handleSubmit, watch, reset } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
   const { axiosSource } = useAxiosSource();
+  const { refetch } = useBooks();
 
   const onSubmit = async (data) => {
     const date = new Date();
@@ -37,6 +39,7 @@ export default function CreateBooksPost() {
         text: "Book post created successfully.",
       });
       reset();
+      refetch();
       setImagePreview(null); // Clear image preview after submit
     } catch (error) {
       console.error("Error creating book post:", error);

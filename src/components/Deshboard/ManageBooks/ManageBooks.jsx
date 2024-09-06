@@ -1,8 +1,9 @@
-// import ManageBooksCard from "../ShireDeshboardComponent/ManageBooksCard";
-import ManageNewsCard from "../ShireDeshboardComponent/ManageNewsCard";
+import useBooks from "../../customHooks/useBooks";
+import ManageBookCard from "../ShireDeshboardComponent/ManageBookCard";
 import CreateBooksPost from "./CreateBooksPost";
 
 export default function ManageBooks() {
+  const { books } = useBooks();
   return (
     <div className="w-full">
       <div className="w-full border-b border-gray-400 p-1">
@@ -46,18 +47,9 @@ export default function ManageBooks() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
-              <ManageNewsCard></ManageNewsCard>
+              {books.map((book, idx) => (
+                <ManageBookCard key={idx} book={book} />
+              ))}
             </div>
           </div>
         </div>
