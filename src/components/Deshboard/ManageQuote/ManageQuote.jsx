@@ -19,7 +19,7 @@ export default function ManageQuote() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab !min-w-[150px]"
+            className="tab !min-w-[160px]"
             aria-label="Create Quotes Post"
           />
           <div
@@ -33,7 +33,7 @@ export default function ManageQuote() {
             type="radio"
             name="my_tabs_1"
             role="tab"
-            className="tab !min-w-[150px]"
+            className="tab !min-w-[170px]"
             aria-label="Manage Quotes Post"
             defaultChecked
           />

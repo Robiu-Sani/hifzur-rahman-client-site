@@ -24,7 +24,7 @@ export default function BookCard({ item }) {
     pdfDriveLink,
     buyLink,
     publisher,
-    totalPage,
+    totalPages,
     bookImage,
     date,
     price,
@@ -65,7 +65,7 @@ export default function BookCard({ item }) {
           <div className="flex items-center space-x-2">
             <FaFileAlt className="text-purple-600 text-sm" />
             <p className="text-sm">
-              {totalPage ? `${totalPage} পৃষ্ঠা` : "পৃষ্ঠা সংখ্যা"}
+              {totalPages ? `${totalPages} পৃষ্ঠা` : "পৃষ্ঠা সংখ্যা"}
             </p>
           </div>
         </div>

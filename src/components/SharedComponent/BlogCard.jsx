@@ -1,13 +1,7 @@
-import { Link } from "react-router-dom";
-import blogimage from "../../image/bgb1.jpg";
+import { useState } from "react";
 
-export default function BlogCard() {
-  const blog = {
-    title: "ব্লগ টাইটেল এক",
-    description:
-      "সংক্ষিপ্ত বিবরণ, বিস্তারিত জানুন। এটি একটি উদাহরণ বাক্য যা ব্লগের বর্ণনার জন্য ব্যবহৃত হবে। এই ব্লগটি ইসলামের উপর ভিত্তি করে লেখা হয়েছে।",
-    thumbnail: blogimage,
-  };
+export default function BlogCard({ blog }) {
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   // Function to truncate the description to 20 words
   const truncateDescription = (description) => {
@@ -17,23 +11,37 @@ export default function BlogCard() {
       : description;
   };
 
+  // Function to toggle the full description
+  const handleReadMoreClick = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
+  const descriptionWords = blog.description.split(" ");
+
   return (
     <div className="bg-white border-b-[3px] border-b-[#317170] p-4 rounded-lg shadow-md flex-none w-full">
       <img
-        src={blog.thumbnail}
+        src={blog.imageUrl}
         alt={blog.title}
         className="rounded-lg shadow-lg mb-4 w-full"
       />
       <h3 className="text-lg font-bold text-green-900">{blog.title}</h3>
       <p className="text-green-700 mb-5">
-        {truncateDescription(blog.description)}
+        {showFullDescription
+          ? blog.description
+          : truncateDescription(blog.description)}
       </p>
-      <Link
-        to={"/blogs"}
-        className="px-5 p-2 rounded hover:scale-110 mt-5 transform transition duration-300 bg-gradient text-yellow-500 z-10 shadow font-bold"
-      >
-        Read more...
-      </Link>
+      <p className="text-sm text-gray-500 mb-3">Published on: {blog.date}</p>
+
+      {/* Conditionally show the "Read more" button if the description has more than 20 words */}
+      {descriptionWords.length > 20 && (
+        <button
+          onClick={handleReadMoreClick}
+          className="px-5 p-2 rounded hover:scale-110 transform transition duration-300 bg-gradient text-yellow-500 z-10 shadow font-bold"
+        >
+          {showFullDescription ? "Show less" : "Read more..."}
+        </button>
+      )}
     </div>
   );
 }

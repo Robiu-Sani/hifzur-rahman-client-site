@@ -7,29 +7,29 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "What is PayPath?",
+      question: "ইসলাম কি?",
       answer:
-        "PayPath is a payment processing service that allows businesses to accept payments online securely and efficiently.",
+        "ইসলাম একটি সম্পূর্ণ জীবনব্যবস্থা, যা আল্লাহ প্রদত্ত এবং তাঁর প্রেরিত রাসূল মুহাম্মদ (সা.) এর মাধ্যমে মানুষের কাছে পৌঁছানো হয়েছে।",
     },
     {
-      question: "How does PayPath handle security?",
+      question: "সালাত কেন গুরুত্বপূর্ণ?",
       answer:
-        "PayPath uses advanced encryption and fraud detection mechanisms to ensure the safety and security of all transactions.",
+        "সালাত (নামাজ) ইসলামের পাঁচটি মূল স্তম্ভের একটি এবং এটি প্রতিদিনের ফরজ ইবাদত, যা মুসলমানদের আল্লাহর সাথে সংযুক্ত রাখে।",
     },
     {
-      question: "Can I use PayPath for mobile payments?",
+      question: "রোজা রাখার উদ্দেশ্য কী?",
       answer:
-        "Yes, PayPath supports mobile payments, allowing customers to pay directly through their smartphones.",
+        "রোজার মূল উদ্দেশ্য হল আত্মসংযম, ধৈর্য এবং আল্লাহর নৈকট্য লাভ করা। এটি আমাদের পাপ থেকে বিরত রাখতে সাহায্য করে এবং আল্লাহর প্রতি কৃতজ্ঞতা প্রকাশের উপায়।",
     },
     {
-      question: "What are the fees for using PayPath?",
+      question: "জাকাতের গুরুত্ব কী?",
       answer:
-        "PayPath offers competitive pricing with a transparent fee structure, ensuring there are no hidden costs.",
+        "জাকাত মুসলিম সমাজের অর্থনৈতিক ভারসাম্য রক্ষা করে এবং দরিদ্র ও অভাবী মানুষের জন্য সহায়তার ব্যবস্থা করে। এটি ধনী মুসলমানদের উপর বাধ্যতামূলক।",
     },
     {
-      question: "Does PayPath offer customer support?",
+      question: "হজ্জ করার শর্তাবলী কী?",
       answer:
-        "Yes, PayPath provides 24/7 customer support to assist with any queries or issues that may arise.",
+        "হজ্জ ইসলামের পাঁচটি স্তম্ভের একটি এবং এটি মুসলিমদের জন্য বাধ্যতামূলক, যদি তারা শারীরিক ও আর্থিকভাবে সক্ষম হয়। এটি একবার জীবনে সম্পাদন করতে হয়।",
     },
   ];
 
@@ -41,7 +41,7 @@ export default function FAQSection() {
     <div className="w-full bg-[#3171703a] py-10 flex flex-col gap-8 justify-center items-center overflow-hidden relative">
       <img src={image} alt="" className="max-h-[90%] absolute z-0 opacity-40" />
       <h1 className="text-center z-10 text-4xl font-extrabold text-gray-800">
-        Frequently Asked Questions
+        প্রায় জিজ্ঞাসিত প্রশ্নাবলী
       </h1>
 
       <div className="w-full z-10 max-w-3xl">
