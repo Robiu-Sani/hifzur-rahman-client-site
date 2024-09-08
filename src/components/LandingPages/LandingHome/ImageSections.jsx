@@ -58,7 +58,9 @@ export default function ImageSections() {
               className="w-full h-auto rounded-lg mb-4"
             />
             <p className="text-gray-800 mb-4">{selectedImage.title}</p>
-            <p className="text-gray-600 mb-4">{selectedImage.description}</p>
+            <small className="text-gray-600 mb-4">
+              {selectedImage.description}
+            </small>
             <button
               onClick={handleClosePopup}
               className="absolute top-2 right-2 text-white bg-red-600 rounded-full p-1 hover:bg-red-700"

@@ -1,48 +1,10 @@
 import PageBanner from "../../SharedComponent/PageBanner";
-import image1 from "../../../image/bgb1.jpg";
 import { useState } from "react";
+import useImages from "../../customHooks/useImage";
 
 export default function Images() {
   const [selectedImage, setSelectedImage] = useState(null);
-
-  const images = [
-    { src: image1, description: "ছবির বর্ণনা ১" },
-    { src: image1, description: "ছবির বর্ণনা ২" },
-    { src: image1, description: "ছবির বর্ণনা ৩" },
-    { src: image1, description: "ছবির বর্ণনা ৪" },
-    { src: image1, description: "ছবির বর্ণনা ৫" },
-    { src: image1, description: "ছবির বর্ণনা ৬" },
-    { src: image1, description: "ছবির বর্ণনা ৭" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-    { src: image1, description: "ছবির বর্ণনা ৮" },
-  ];
+  const { images } = useImages();
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
@@ -70,7 +32,7 @@ export default function Images() {
               className="relative flex flex-col justify-center items-center w-full h-60 group cursor-pointer"
             >
               <img
-                src={img.src}
+                src={img.imageURL}
                 alt={`Gallery image ${index + 1}`}
                 className="min-w-full h-full mx-auto object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
               />
@@ -85,11 +47,14 @@ export default function Images() {
           <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-20">
             <div className="bg-white p-4 rounded-lg shadow-lg max-w-lg w-full relative">
               <img
-                src={selectedImage.src}
+                src={selectedImage.imageURL}
                 alt="Selected"
                 className="w-full h-auto rounded-lg mb-4"
               />
-              <p className="text-gray-800 mb-4">{selectedImage.description}</p>
+              <p className="text-gray-800 mb-4">{selectedImage.title}</p>
+              <small className="text-gray-800 mb-4">
+                {selectedImage.description}
+              </small>
               <button
                 onClick={handleClosePopup}
                 className="absolute top-2 right-2 text-white bg-red-600 rounded-full p-1 hover:bg-red-700"
