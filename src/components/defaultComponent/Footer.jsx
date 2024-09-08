@@ -1,13 +1,14 @@
 import {
   FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaTelegramPlane,
+  FaYoutube,
 } from "react-icons/fa";
 import bannerBg from "../../image/bg1.jpg";
+import { IoLogoWhatsapp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -39,16 +40,19 @@ export default function Footer() {
                 <li className="flex items-center">
                   <FaMapMarkerAlt className="text-gray-300 mr-2" />
                   <span className="text-gray-300">
-                    ১২৩ প্রধান সড়ক, শহর, দেশ
+                    ইনসাফ গার্ডেন সিটি , কোটবাড়ি রোড, দৌলতপুর , কুমিল্লা ,
+                    চট্টগ্রাম, বাংলাদেশ
                   </span>
                 </li>
                 <li className="flex items-center">
                   <FaPhoneAlt className="text-gray-300 mr-2" />
-                  <span className="text-gray-300">+৮৮ ১২৩ ৪৫৬ ৭৮৯০</span>
+                  <span className="text-gray-300">+৮৮ ০১৮৮৭২৪২১৪২</span>
                 </li>
                 <li className="flex items-center">
                   <FaEnvelope className="text-gray-300 mr-2" />
-                  <span className="text-gray-300">info@yourcompany.com</span>
+                  <span className="text-gray-300">
+                    drhafzurrahman@gmail.com
+                  </span>
                 </li>
               </ul>
             </div>
@@ -58,44 +62,44 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4">দ্রুত লিংক</h3>
               <ul className="space-y-2">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to={"/"}
                     className="text-gray-300 hover:text-white transition-colors"
                   >
                     হোম
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to={"/about"}
                     className="text-gray-300 hover:text-white transition-colors"
                   >
-                    আমাদের সম্পর্কে
-                  </a>
+                    আমার সম্পর্কে
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to={"/videos"}
                     className="text-gray-300 hover:text-white transition-colors"
                   >
                     সেবা
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to={"/contact"}
                     className="text-gray-300 hover:text-white transition-colors"
                   >
                     যোগাযোগ
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to={"/blog"}
                     className="text-gray-300 hover:text-white transition-colors"
                   >
                     ব্লগ
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -105,32 +109,32 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4">আমাদের অনুসরণ করুন</h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=100039017978246"
                   className="text-gray-300 hover:text-white transition-colors"
                   aria-label="Facebook"
                 >
                   <FaFacebookF className="text-2xl" />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://wa.me/+8801887242142"
                   className="text-gray-300 hover:text-white transition-colors"
                   aria-label="Twitter"
                 >
-                  <FaTwitter className="text-2xl" />
+                  <IoLogoWhatsapp className="text-2xl" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://t.me/+8801887242142"
                   className="text-gray-300 hover:text-white transition-colors"
                   aria-label="Instagram"
                 >
-                  <FaInstagram className="text-2xl" />
+                  <FaTelegramPlane className="text-2xl" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.youtube.com/@as-salehin-9404"
                   className="text-gray-300 hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <FaLinkedinIn className="text-2xl" />
+                  <FaYoutube className="text-2xl" />
                 </a>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosSource from "../../customHooks/useAxiousSorce";
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
   const { axiosSource } = useAxiosSource();
@@ -11,9 +12,10 @@ const SignupForm = () => {
     formState: { errors },
   } = useForm();
   const password = watch("password");
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const signupData = { ...data, status: "Admin" };
+    const signupData = { ...data, status: "User" };
     try {
       const response = await axiosSource.post("/signup", signupData);
 
@@ -25,6 +27,7 @@ const SignupForm = () => {
         title: "Signup Successful",
         text: "Your account has been created successfully!",
       });
+      navigate("/");
 
       console.log("Signup successful:", response.data);
     } catch (error) {

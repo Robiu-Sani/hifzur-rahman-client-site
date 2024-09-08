@@ -11,18 +11,30 @@ export default function SocialMediaInfo() {
   const socialLinks = [
     {
       name: "Facebook",
-      url: "https://www.facebook.com",
+      url: "https://www.facebook.com/profile.php?id=100039017978246",
       icon: <FaFacebookF />,
     },
-    { name: "WhatsApp", url: "https://wa.me/", icon: <IoLogoWhatsapp /> },
-    { name: "Twitter", url: "https://twitter.com", icon: <FaTwitter /> },
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/+8801887242142",
+      icon: <IoLogoWhatsapp />,
+    },
+    { name: "Twitter", url: "#", icon: <FaTwitter /> },
     {
       name: "Instagram",
-      url: "https://www.instagram.com",
+      url: "#",
       icon: <FaInstagram />,
     },
-    { name: "YouTube", url: "https://www.youtube.com", icon: <FaYoutube /> },
-    { name: "Telegram", url: "https://t.me", icon: <FaTelegramPlane /> },
+    {
+      name: "YouTube",
+      url: "https://www.youtube.com/@as-salehin-9404",
+      icon: <FaYoutube />,
+    },
+    {
+      name: "Telegram",
+      url: "https://t.me/+8801887242142",
+      icon: <FaTelegramPlane />,
+    },
   ];
 
   return (

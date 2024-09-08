@@ -145,7 +145,7 @@ export default function NavBar() {
               </ul>
             </div>
             <Link to="/">
-              <img src={logo} alt="লোগো" className="h-[30px]" />
+              <img src={logo} alt="লোগো" className="h-[80px]" />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">

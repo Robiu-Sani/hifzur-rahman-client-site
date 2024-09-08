@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosSource from "../../customHooks/useAxiousSorce";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const { axiosSource } = useAxiosSource();
@@ -9,6 +10,7 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
@@ -23,6 +25,7 @@ const LoginForm = () => {
         title: "Login Successful",
         text: "You have logged in successfully!",
       });
+      navigate("/");
 
       console.log("Login successful:", response.data);
     } catch (error) {

@@ -1,7 +1,12 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useContactsMessages from "../../customHooks/useContactsMessages";
+import useAxiosSource from "../../customHooks/useAxiousSorce";
 
 export default function ContactForm() {
+  const { refetch } = useContactsMessages();
+  const { axiosSource } = useAxiosSource();
+
   const {
     register,
     handleSubmit,
@@ -10,18 +15,29 @@ export default function ContactForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
+    const messageData = { ...data, date: new Date().toLocaleDateString() };
 
-    // Display SweetAlert2 success alert
-    Swal.fire({
-      icon: "success",
-      title: "Message Sent!",
-      text: "Thank you for contacting us. We will get back to you soon.",
-      confirmButtonColor: "#3b7777",
-    });
-
-    // Reset the form fields
-    reset();
+    axiosSource
+      .post(`/ContactsMessages`, messageData)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Message Sent!",
+          text: "Thank you for contacting us. We will get back to you soon.",
+          confirmButtonColor: "#3b7777",
+        });
+        refetch(); // Refetch the contact messages only after the message is sent
+        reset(); // Reset the form after successful submission
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong! Please try again later.",
+          confirmButtonColor: "#3b7777",
+        });
+        console.error("Error sending message:", error);
+      });
   };
 
   return (

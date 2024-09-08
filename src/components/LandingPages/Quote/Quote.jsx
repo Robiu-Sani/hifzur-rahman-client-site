@@ -1,7 +1,9 @@
+import useQuote from "../../customHooks/useQuote";
 import PageBanner from "../../SharedComponent/PageBanner";
 import QuoteCard from "../../SharedComponent/QuoteCard";
 
 export default function Quote() {
+  const { quotes } = useQuote();
   return (
     <div>
       <PageBanner Title="Quote" />
@@ -11,23 +13,9 @@ export default function Quote() {
           gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
         }}
       >
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
-        <QuoteCard></QuoteCard>
+        {quotes.map((item, idx) => (
+          <QuoteCard key={idx} quote={item}></QuoteCard>
+        ))}
       </div>
     </div>
   );

@@ -1,13 +1,39 @@
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { VscThreeBars } from "react-icons/vsc";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import LeftNav from "./DeshboardNav/LeftNav";
 import NavTop from "./DeshboardNav/NavTop";
 import { IoLogOut } from "react-icons/io5";
+import Swal from "sweetalert2";
 
 export default function DashboardRoot() {
   const [callNav, setCallNav] = useState(false);
+  const navigate = useNavigate();
+
+  const HandleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log out!",
+      cancelButtonText: "No, cancel!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Proceed with logout
+        localStorage.removeItem("userEmail");
+        navigate("/");
+        Swal.fire(
+          "Logged Out!",
+          "You have been logged out successfully.",
+          "success"
+        );
+      }
+    });
+  };
 
   return (
     <div className="w-full h-screen overflow-hidden bg-[#3171703a] flex relative">
@@ -22,7 +48,10 @@ export default function DashboardRoot() {
           </h1>
         </div>
         <LeftNav></LeftNav>
-        <button className="w-[246px] bg-[#003d3d] absolute bottom-2 gap-2 rounded flex justify-center border border-[#cfb46b7e] items-center text-[#cfb56b] font-bold p-2 cursor-pointer">
+        <button
+          onClick={HandleLogout}
+          className="w-[246px] bg-[#003d3d] absolute bottom-2 gap-2 rounded flex justify-center border border-[#cfb46b7e] items-center text-[#cfb56b] font-bold p-2 cursor-pointer"
+        >
           <IoLogOut /> Log Out
         </button>
       </div>

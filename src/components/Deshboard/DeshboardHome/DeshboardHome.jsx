@@ -1,5 +1,6 @@
 import Allusers from "./Allusers";
 import ContactMessages from "./ContactMessages";
+import GetImageLink from "./GetImageLink";
 import HomeContant from "./HomeContant";
 
 export default function DeshboardHome() {
@@ -53,6 +54,19 @@ export default function DeshboardHome() {
             className="tab-content border-t border-gray-400 p-2  border-x-0 overflow-y-auto border-b-0"
           >
             <Allusers></Allusers>
+          </div>
+          <input
+            type="radio"
+            name="my_tabs_1"
+            role="tab"
+            className="tab !min-w-[170px]"
+            aria-label="Upload Image"
+          />
+          <div
+            role="tabpanel"
+            className="tab-content border-t border-gray-400 p-2  border-x-0 overflow-y-auto border-b-0"
+          >
+            <GetImageLink></GetImageLink>
           </div>
         </div>
       </div>

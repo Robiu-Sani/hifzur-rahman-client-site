@@ -1,27 +1,7 @@
+import useContacts from "../../customHooks/useContacts";
+
 export default function AddressContact() {
-  const cardsData = [
-    {
-      address: "1234 Main St, Anytown, USA",
-      email: "example1@example.com",
-      phone: "+1 234 567 890",
-      addressType: "Home",
-      note: "This is the home address.",
-    },
-    {
-      address: "5678 Second St, Othertown, USA",
-      email: "example2@example.com",
-      phone: "+1 987 654 321",
-      addressType: "Office",
-      note: "This is the office address.",
-    },
-    {
-      address: "91011 Third St, Somewhere, USA",
-      email: "example3@example.com",
-      phone: "+1 555 444 333",
-      addressType: "Other",
-      note: "This is another address.",
-    },
-  ];
+  const { contacts } = useContacts();
 
   return (
     <div className="bg-[#d0dfde] p-10 min-h-screen">
@@ -30,7 +10,7 @@ export default function AddressContact() {
       </h2>
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cardsData.map((card, index) => (
+          {contacts.map((card, index) => (
             <div
               key={index}
               className="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between"
@@ -51,7 +31,7 @@ export default function AddressContact() {
               </div>
               <div>
                 <p className="text-gray-600 mt-4">
-                  <strong>Note:</strong> {card.note}
+                  <strong>Note:</strong> {card.notes}
                 </p>
               </div>
             </div>
