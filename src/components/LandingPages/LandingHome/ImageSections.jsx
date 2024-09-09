@@ -25,7 +25,7 @@ export default function ImageSections() {
         Here you can See Islamic Book writen by Dr.Hifzur Rahman.
       </p>
       <div className="container mx-auto px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 z-10">
-        {images.slice(0.8).map((img, index) => (
+        {images.slice(0, 8).map((img, index) => (
           <div
             key={index}
             onClick={() => handleImageClick(img)}
@@ -50,14 +50,14 @@ export default function ImageSections() {
       </Link>
 
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-20">
-          <div className="bg-white p-4 rounded-lg shadow-lg max-w-lg w-full relative">
+        <div className="fixed inset-0 min-h-screen pt-5 overflow-scroll bg-black bg-opacity-70 flex justify-center items-center z-20">
+          <div className="bg-white rounded-lg shadow-lg max-w-[400px] p-2 z-[10000] relative">
             <img
               src={selectedImage.imageURL}
               alt="Selected"
               className="w-full h-auto rounded-lg mb-4"
             />
-            <p className="text-gray-800 mb-4">{selectedImage.title}</p>
+            <p className="text-gray-800 p-2 mb-4">{selectedImage.title}</p>
             <small className="text-gray-600 mb-4">
               {selectedImage.description}
             </small>

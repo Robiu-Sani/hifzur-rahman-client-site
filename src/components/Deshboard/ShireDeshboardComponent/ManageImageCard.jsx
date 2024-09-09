@@ -41,7 +41,7 @@ export default function ManageImageCard({ image }) {
         <img
           src={image.imageURL}
           alt={image.title}
-          className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-[250px] transition-transform duration-300 group-hover:scale-105"
           onClick={() => handleImageClick(image.imageURL)}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2 text-white">
@@ -61,7 +61,7 @@ export default function ManageImageCard({ image }) {
       </div>
 
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-20">
+        <div className="fixed inset-0 overflow-scroll bg-black bg-opacity-70 flex justify-center items-center z-20">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
             <img
               src={selectedImage}

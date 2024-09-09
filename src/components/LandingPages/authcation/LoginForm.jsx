@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const { axiosSource } = useAxiosSource();
+
   const {
     register,
     handleSubmit,
@@ -26,6 +27,7 @@ const LoginForm = () => {
         text: "You have logged in successfully!",
       });
       navigate("/");
+      location.reload();
 
       console.log("Login successful:", response.data);
     } catch (error) {

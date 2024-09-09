@@ -19,7 +19,7 @@ const Button = ({ icon: Icon, text, className, ...props }) => (
 
 export default function BookCard({ item }) {
   const {
-    bookname,
+    bookName,
     description,
     pdfDriveLink,
     buyLink,
@@ -47,7 +47,7 @@ export default function BookCard({ item }) {
       </div>
       <div className="p-4">
         <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-purple-700 transition-colors duration-300">
-          {bookname || "বইয়ের নাম"}
+          {bookName || "বইয়ের নাম"}
         </h3>
         <p className="text-gray-700 text-sm mb-4">
           {description ||

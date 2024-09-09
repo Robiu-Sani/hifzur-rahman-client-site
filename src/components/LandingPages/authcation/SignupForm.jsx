@@ -16,6 +16,7 @@ const SignupForm = () => {
 
   const onSubmit = async (data) => {
     const signupData = { ...data, status: "User" };
+
     try {
       const response = await axiosSource.post("/signup", signupData);
 
@@ -28,7 +29,7 @@ const SignupForm = () => {
         text: "Your account has been created successfully!",
       });
       navigate("/");
-
+      location.reload();
       console.log("Signup successful:", response.data);
     } catch (error) {
       // Display error message with SweetAlert2
