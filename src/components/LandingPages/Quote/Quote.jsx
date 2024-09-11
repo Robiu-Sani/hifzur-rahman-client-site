@@ -5,7 +5,7 @@ import QuoteCard from "../../SharedComponent/QuoteCard";
 export default function Quote() {
   const { quotes } = useQuote();
   return (
-    <div>
+    <div className="">
       <PageBanner Title="Quote" />
       <div
         className="container mx-auto my-10 z-50 grid gap-5"

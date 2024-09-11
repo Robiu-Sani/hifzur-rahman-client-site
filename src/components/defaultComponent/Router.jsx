@@ -26,6 +26,7 @@ import ManageContact from "../Deshboard/ManageContact/ManageContact";
 import LoginForm from "../LandingPages/authcation/LoginForm";
 import SignupForm from "../LandingPages/authcation/SignupForm";
 import ManageBooks from "../Deshboard/ManageBooks/ManageBooks";
+import Private from "./Private";
 
 export const router = createBrowserRouter([
   {
@@ -89,39 +90,75 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/deshboard",
-        element: <DeshboardHome></DeshboardHome>,
+        element: (
+          <Private>
+            <DeshboardHome></DeshboardHome>
+          </Private>
+        ),
       },
       {
         path: "/manageblogs",
-        element: <ManageBlogs></ManageBlogs>,
+        element: (
+          <Private>
+            <ManageBlogs></ManageBlogs>
+          </Private>
+        ),
       },
       {
         path: "/manageimages",
-        element: <ManageImages></ManageImages>,
+        element: (
+          <Private>
+            <ManageImages></ManageImages>
+          </Private>
+        ),
       },
       {
         path: "/managevideos",
-        element: <ManageVideos></ManageVideos>,
+        element: (
+          <Private>
+            <ManageVideos></ManageVideos>
+          </Private>
+        ),
       },
       {
         path: "/manageprogrammes",
-        element: <ManageProgrammes></ManageProgrammes>,
+        element: (
+          <Private>
+            <ManageProgrammes></ManageProgrammes>
+          </Private>
+        ),
       },
       {
         path: "/managenews",
-        element: <ManageNews></ManageNews>,
+        element: (
+          <Private>
+            <ManageNews></ManageNews>
+          </Private>
+        ),
       },
       {
         path: "/managequote",
-        element: <ManageQuote></ManageQuote>,
+        element: (
+          <Private>
+            <ManageQuote></ManageQuote>
+          </Private>
+        ),
       },
       {
         path: "/managecontact",
-        element: <ManageContact></ManageContact>,
+        element: (
+          <Private>
+            <ManageContact></ManageContact>
+          </Private>
+        ),
       },
       {
         path: "/managebooks",
-        element: <ManageBooks></ManageBooks>,
+        element: (
+          <Private>
+            <ManageBooks></ManageBooks>
+          </Private>
+        ),
       },
     ],
   },

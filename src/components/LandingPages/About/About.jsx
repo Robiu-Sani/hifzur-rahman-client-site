@@ -3,7 +3,7 @@ import AboutSummery from "./AboutSummery";
 
 export default function About() {
   return (
-    <div>
+    <div className="">
       <PageBanner Title="About Dr: Hifzur Rahman" />
       <AboutSummery></AboutSummery>
     </div>

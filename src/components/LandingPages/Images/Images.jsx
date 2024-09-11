@@ -15,7 +15,7 @@ export default function Images() {
   };
 
   return (
-    <div>
+    <div className="">
       <PageBanner Title="All Images" />
       <div className="w-full bg-[#3171703a] py-10 flex flex-col gap-8 justify-center items-center overflow-hidden relative">
         <h1 className="text-center z-10 text-4xl font-extrabold text-gray-800">
