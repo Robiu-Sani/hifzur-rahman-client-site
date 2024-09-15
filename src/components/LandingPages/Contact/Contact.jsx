@@ -6,7 +6,7 @@ import SocialMediaInfo from "./SocialMediaInfo";
 export default function Contact() {
   return (
     <div className="">
-      <PageBanner Title="Contact with Dr: Hifzur Rahman" />
+      <PageBanner Title="Contact with Dr: Hefzur Rahman" />
       <AddressContact></AddressContact>
       <ContactForm></ContactForm>
       <SocialMediaInfo></SocialMediaInfo>

@@ -11,30 +11,33 @@ Welcome to the **Personal Dashboard Management System**! This web application is
 - **Quote Sharing:** Upload motivational or personal quotes.
 - **Program Scheduling:** Add programs with start and end dates, providing users with upcoming event details.
 - **Dashboard Overview:** Manage all content types from a single, user-friendly interface.
-  
+
 ## Dashboard Functionalities
 
 1. **Image Management:**
    - Upload images with descriptions.
    - View image previews before saving.
    - Organize images in the gallery.
-   
 2. **Video Post Creation:**
+
    - Embed YouTube videos.
    - Add titles, descriptions, and speaker information.
    - Schedule video posts with date and time.
 
 3. **Blog Post Management:**
+
    - Create new blog entries with titles, descriptions, and thumbnail images.
    - Preview blogs before publishing.
    - Edit or delete existing posts.
 
 4. **News Posting:**
+
    - Post news updates with multimedia support (images, videos).
    - Add detailed descriptions with a date of publication.
    - Edit or remove outdated news posts.
 
 5. **Quotes Section:**
+
    - Add inspiring or personal quotes.
    - Manage the list of quotes with the ability to update or remove.
 
@@ -57,37 +60,38 @@ Welcome to the **Personal Dashboard Management System**! This web application is
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/your-repo/personal-dashboard.git
-    cd personal-dashboard
-    ```
+   ```bash
+   git clone https://github.com/your-repo/personal-dashboard.git
+   cd personal-dashboard
+   ```
 
 2. Install dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. Run the application locally:
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
 4. Backend Setup:
+
    - Ensure that you have MongoDB installed.
    - Set up the required environment variables for connecting to the database in a `.env` file:
 
-    ```bash
-    MONGO_URI=your_mongo_uri
-    PORT=your_port_number
-    ```
+   ```bash
+   MONGO_URI=your_mongo_uri
+   PORT=your_port_number
+   ```
 
 5. Start the backend server:
 
-    ```bash
-    npm run server
-    ```
+   ```bash
+   npm run server
+   ```
 
 ## Usage
 
@@ -98,12 +102,15 @@ Welcome to the **Personal Dashboard Management System**! This web application is
 ## Screenshots
 
 ### Dashboard Overview
+
 ![Dashboard Overview](https://your-screenshot-url.com/dashboard.png)
 
 ### Image Upload
+
 ![Image Upload](https://your-screenshot-url.com/image-upload.png)
 
 ### Video Post Creation
+
 ![Video Post](https://your-screenshot-url.com/video-post.png)
 
 ## Future Improvements
@@ -124,6 +131,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Made with ❤️ by [Robius Sani]
 
-
-
-[server](https://github.com/Robiu-Sani/hifzur-rahman-server-site)
+[server](https://github.com/Robiu-Sani/Hifzur-rahman-server-site)
