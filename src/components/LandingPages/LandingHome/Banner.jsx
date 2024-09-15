@@ -18,7 +18,7 @@ export default function Banner() {
               আসসালামু আলাইকুম!
             </h1>
             <h1 className="text-gradient text-[45px] my-5 md:text-[85px] font-extrabold">
-              ড. হিফজুর রহমান
+              ড. মো: হেফজুর রহমান
             </h1>
             <p className="text-gradient text-xl font-semibold">
               ইসলামের জ্ঞান প্রচার এবং শিক্ষার মান উন্নয়নের জন্য আমি কাজ করে
